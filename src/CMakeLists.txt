@@ -9,3 +9,6 @@ set(STL_Algorithm STL_Algorithm/STL_Algorithm_sorting.c STL_Algorithm/STL_Algori
 set(STL_Stack STL_Stack/STL_Stack.c STL_Headers/STL/STL_Stack.h)
 
 add_library(STL STL_Headers/STL.h STL_Headers/STL_Config.h ${STL_List} ${STL_Queue} ${STL_Algorithm} ${STL_Stack})
+
+add_executable(main main.c)
+target_link_libraries(main STL_List STL_Algorithm)

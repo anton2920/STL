@@ -1,1 +1,1 @@
-man_MANS = STL.1
+man_MANS = STL.3
