@@ -18,26 +18,28 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef SRC_STL_QUEUE_H
-#define SRC_STL_QUEUE_H
+#include "../STL_Headers/STL/STL_Algorithm.h"
 
-/* Definition of STL_Queue type */
-typedef STL_List STL_Queue;
-typedef STL_List_node STL_Queue_node;
+/* Miscellaneous routines */
+void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
-/* Functions declarations */
-int STL_Queue_init(STL_Queue *);
-void STL_Queue_delete(STL_Queue *);
+    /* Initializing variables */
+    auto const char *p = (char *) pbase, *pivot = NULL;
+    int res;
 
-void *STL_Queue_front(STL_Queue *);
-void *STL_Queue_back(STL_Queue *);
+    /* Main part */
+    for ( ; n > 0; n >>= 1) {
+        pivot = pbase + (n >> 1) * nbytes;
+        if (!(res = (*cmp)(key, (const void *) pivot))) {
+            return (void *) pivot;
+        }
 
-int STL_Queue_empty(STL_Queue *);
-size_t STL_Queue_size(STL_Queue *);
+        if (res > 0) {
+            pbase = pivot + nbytes;
+            --n;
+        }
+    }
 
-int STL_Queue_push(STL_Queue *, const void *, size_t);
-void STL_Queue_pop(STL_Queue *);
-
-void STL_Queue_swap(STL_Queue *, STL_Queue *);
-
-#endif
+    /* Returning value */
+    return NULL;
+}
