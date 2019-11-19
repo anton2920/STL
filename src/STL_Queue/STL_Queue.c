@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../STL_Headers/STL/STL_List.h"
 #include "../STL_Headers/STL/STL_Queue.h"
 
 int STL_Queue_init(STL_Queue *self) {

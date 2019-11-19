@@ -8,4 +8,5 @@ lib_LTLIBRARIES = libSTL_Stack.la
 # libSTL_Stack.la
 libSTL_Stack_la_LDFLAGS = -version-info 0:0:0
 libSTL_Stack_la_SOURCES = STL_Stack.c
+libSTL_Stack_la_LIBADD = ../STL_List/libSTL_List.la
 libSTL_Stack_la_CFLAGS = $(AM_CFLAGS)

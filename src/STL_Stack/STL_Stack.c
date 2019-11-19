@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../STL_Headers/STL/STL_List.h"
 #include "../STL_Headers/STL/STL_Stack.h"
 
 int STL_Stack_init(STL_Stack *self) {

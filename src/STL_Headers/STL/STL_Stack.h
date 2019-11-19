@@ -21,6 +21,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #ifndef SRC_STL_STACK_H
 #define SRC_STL_STACK_H
 
+/* Header inclusion */
+#include "STL_List.h"
+
 /* Definition of STL_Stack type */
 typedef STL_List STL_Stack;
 typedef STL_List_node STL_Stack_node;

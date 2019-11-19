@@ -21,6 +21,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #ifndef SRC_STL_QUEUE_H
 #define SRC_STL_QUEUE_H
 
+/* Header inclusion */
+#include "STL_List.h"
+
 /* Definition of STL_Queue type */
 typedef STL_List STL_Queue;
 typedef STL_List_node STL_Queue_node;
