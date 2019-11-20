@@ -29,9 +29,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
     #include <stddef.h>
 #endif
 
-/* Declaration of STL_List type (available in STL_List.h) */
-typedef struct __STL_List STL_List;
-typedef struct __STL_List_node STL_List_node;
+/* Include STL_List type definition */
+#include "__STL_List_type.h"
 
 /* Definition of STL_Queue type */
 typedef STL_List STL_Queue;

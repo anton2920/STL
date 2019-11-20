@@ -29,19 +29,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
     #include <stddef.h>
 #endif
 
-/* Definition of STL_List type */
-typedef struct __STL_List_node {
-    void *value;
-    size_t size;
-    struct __STL_List_node *next;
-    struct __STL_List_node *prev;
-} STL_List_node;
-
-typedef struct __STL_List {
-    STL_List_node *bp;
-    STL_List_node *lp;
-    size_t size;
-} STL_List;
+/* Include STL_List type definition */
+#include "__STL_List_type.h"
 
 /* STL_List errors */
 enum STL_List_errors {
