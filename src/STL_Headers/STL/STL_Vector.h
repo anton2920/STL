@@ -55,6 +55,7 @@ enum STL_Vector_states {
 /* STL_Vector methods */
 /* Construction and destruction */
 int STL_Vector_init(STL_Vector *self, size_t nbytes); /* Constructs the vector for the values of size nbytes. Returns STL_Vector_OK if OK */
+int STL_Vector_init_cpy(STL_Vector *self, STL_Vector *other); /* Copies the vector. Returns STL_Vector_OK if OK */
 void STL_Vector_delete(STL_Vector *self); /* Destructs the vector */
 
 /* Element access */
@@ -70,8 +71,8 @@ void *STL_Vector_end(STL_Vector *self); /* Returns iterator to the end */
 /* Capacity */
 int STL_Vector_empty(STL_Vector *self); /* Checks whether the container is empty */
 size_t STL_Vector_size(STL_Vector *self); /* Returns the number of elements */
-int STL_Vector_reserve(STL_Vector *self); /* Reserves storage */
-int STL_Vector_capacity(STL_Vector *self); /* Returns the number of elements that can be held in currently allocated storage */
+int STL_Vector_reserve(STL_Vector *self, size_t new_cap); /* Reserves storage */
+size_t STL_Vector_capacity(STL_Vector *self); /* Returns the number of elements that can be held in currently allocated storage */
 int STL_Vector_shrink_to_fit(STL_Vector *self); /* Reduces memory usage by freeing unused memory */
 
 /* Modifiers */
@@ -84,7 +85,7 @@ void *STL_Vector_erase_pos(STL_Vector *self, size_t pos); /* Erases element at p
 void *STL_Vector_erase(STL_Vector *self, const void *pos); /* Erases element at pos. Returns iterator following removed element */
 
 int STL_Vector_push_back(STL_Vector *self, const void *elem); /* Adds element to the end */
-void STL_Vector_pop_back(STL_Vector *self, const void *elem); /* Removes the last element */
+void STL_Vector_pop_back(STL_Vector *self); /* Removes the last element */
 
 int STL_Vector_resize(STL_Vector *self, size_t count); /* Changes the number of elements stored */
 void STL_Vector_swap(STL_Vector *self, STL_Vector *other); /* Swaps the contents */

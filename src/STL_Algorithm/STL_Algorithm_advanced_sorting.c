@@ -20,7 +20,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
-#include <string.h>
+#if (HAVE_STRING_H == 1)
+    #include <string.h>
+#endif
 
 /* Miscellaneous routines */
 static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (*cmp)(const void *, const void *)) {

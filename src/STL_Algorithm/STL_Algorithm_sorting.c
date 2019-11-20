@@ -20,10 +20,12 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
-#include <string.h>
+#if (HAVE_STRING_H == 1)
+    #include <string.h>
+#endif
 
 /* Basic sorting algorithms */
-void bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
     /* Initializing variables */
     register size_t i, j;
@@ -46,7 +48,7 @@ void bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, 
     }
 }
 
-void selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
     /* Initializing variables */
     register size_t i, j, min_index = 0;
@@ -67,7 +69,7 @@ void selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
     }
 }
 
-void insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
     /* Initializing variables */
     register size_t i, j;
@@ -86,7 +88,7 @@ void insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
     }
 }
 
-void shell_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_shell_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
     /* Initializing variables */
     auto char *p = (char *) pbase, temp[nbytes];

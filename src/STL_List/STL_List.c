@@ -18,10 +18,15 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "../STL_Headers/STL/STL_List.h"
+
+#if (HAVE_STDLIB_H == 1)
+    #include <stdlib.h>
+#endif
+
+#if (HAVE_STRING_H == 1)
+    #include <string.h>
+#endif
 
 static void STL_List_check_pointers(STL_List *l) {
     if (l->bp != NULL && l->lp == NULL) {
@@ -51,7 +56,7 @@ int STL_List_init_cpy(STL_List *self, STL_List *other) {
     register STL_List_node *iter;
     auto int code;
 
-    /* VarCheck */
+    /* Main part */
     code = STL_List_init(self);
     if (other == NULL || code != STL_List_OK) {
         return code;

@@ -20,7 +20,9 @@ along with Sorting library. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
-#include <stdlib.h>
+#if (HAVE_STDLIB_H == 1)
+    #include <stdlib.h>
+#endif
 
 /* Basic functions for compare */
 int STL_numcmp(const void *num1, const void *num2) {
