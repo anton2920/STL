@@ -19,6 +19,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
 #include "../STL_Headers/STL/STL_Queue.h"
+#include "../STL_Headers/STL/STL_List.h"
 
 int STL_Queue_init(STL_Queue *self) {
 

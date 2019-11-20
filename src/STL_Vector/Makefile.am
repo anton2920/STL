@@ -7,5 +7,5 @@ lib_LTLIBRARIES = libSTL_Vector.la
 
 # libSTL_Vector.la
 libSTL_Vector_la_LDFLAGS = -version-info 0:0:0
-libSTL_Vector_la_SOURCES = STL_Vector.c
+libSTL_Vector_la_SOURCES = STL_Vector.c $(otherinclude_HEADERS)
 libSTL_Vector_la_CFLAGS = $(AM_CFLAGS)

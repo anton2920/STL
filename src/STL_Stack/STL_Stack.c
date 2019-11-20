@@ -19,6 +19,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
 #include "../STL_Headers/STL/STL_Stack.h"
+#include "../STL_Headers/STL/STL_List.h"
 
 int STL_Stack_init(STL_Stack *self) {
 

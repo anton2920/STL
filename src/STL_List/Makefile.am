@@ -7,5 +7,5 @@ lib_LTLIBRARIES = libSTL_List.la
 
 # libSTL_List.la
 libSTL_List_la_LDFLAGS = -version-info 0:0:0
-libSTL_List_la_SOURCES = STL_List.c
+libSTL_List_la_SOURCES = STL_List.c $(otherinclude_HEADERS)
 libSTL_List_la_CFLAGS = $(AM_CFLAGS)
