@@ -45,6 +45,26 @@ int STL_List_init(STL_List *l) {
     return STL_List_OK;
 }
 
+int STL_List_init_cpy(STL_List *self, STL_List *other) {
+
+    /* Initializing variables */
+    register STL_List_node *iter;
+    auto int code;
+
+    /* VarCheck */
+    code = STL_List_init(self);
+    if (other == NULL || code != STL_List_OK) {
+        return code;
+    }
+
+    for (iter = STL_List_begin(other); iter != NULL; iter = iter->next) {
+        STL_List_push_back(self, iter->value, iter->size);
+    }
+
+    /* Returning value */
+    return STL_List_OK;
+}
+
 void STL_List_delete(STL_List *l) {
 
     /* Main part */

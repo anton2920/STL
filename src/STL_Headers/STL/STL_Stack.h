@@ -28,7 +28,6 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #if (HAVE_STDDEF_H == 1)
     #include <stddef.h>
 #endif
-
 /* Include STL_List type definition */
 #include "__STL_List_type.h"
 
@@ -47,6 +46,7 @@ enum STL_Stack_errors {
 /* STL_Stack methods */
 /* Construction and destruction */
 int STL_Stack_init(STL_Stack *self); /* Constructs the stack. Returns STL_Stack_OK if OK */
+int STL_Stack_init_cpy(STL_Stack *self, STL_Stack *other); /* Copies the stack. Returns STL_Stack_OK if OK */
 void STL_Stack_delete(STL_Stack *stack); /* Destructs the stack */
 
 /* Element access */

@@ -49,6 +49,7 @@ enum STL_List_states {
 /* STL_List methods */
 /* Construction and destruction */
 int STL_List_init(STL_List *list); /* Constructs the list. Returns STL_List_OK if OK */
+int STL_List_init_cpy(STL_List *self, STL_List *other); /* Copies the list. Returns STL_List_OK if OK */
 void STL_List_delete(STL_List *list); /* Destructs the list */
 
 /* Element access */

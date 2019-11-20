@@ -27,6 +27,12 @@ int STL_Queue_init(STL_Queue *self) {
     return STL_List_init((STL_List *) self);
 }
 
+int STL_Queue_init_cpy(STL_Queue *self, STL_Queue *other) {
+
+    /* Returning value */
+    return STL_List_init_cpy((STL_List *) self, (STL_List *) other);
+}
+
 void STL_Queue_delete(STL_Queue *self) {
 
     /* Main part */

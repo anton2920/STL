@@ -47,6 +47,7 @@ enum STL_Queue_errors {
 /* STL_Queue methods */
 /* Construction and destruction */
 int STL_Queue_init(STL_Queue *self); /* Constructs the queue. Returns STL_Queue_OK if OK */
+int STL_Queue_init_cpy(STL_Queue *self, STL_Queue *other); /* Copies the queue. Returns STL_Queue_OK if OK */
 void STL_Queue_delete(STL_Queue *queue); /* Destructs the queue */
 
 /* Element access */

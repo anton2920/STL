@@ -27,6 +27,12 @@ int STL_Stack_init(STL_Stack *self) {
     return STL_List_init((STL_List *) self);
 }
 
+int STL_Stack_init_cpy(STL_Stack *self, STL_Stack *other) {
+
+    /* Returning value */
+    return STL_List_init_cpy((STL_List *) self, (STL_List *) other);
+}
+
 void STL_Stack_delete(STL_Stack *self) {
 
     /* Main part */
