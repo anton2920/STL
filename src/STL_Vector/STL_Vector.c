@@ -56,6 +56,9 @@ static int STL_Vector_reallocate(STL_Vector *self, size_t new_size) {
     auto void *tmp = malloc(self->nelem * self->nbytes);
 
     /* Main part */
+    if (tmp == NULL) {
+        return STL_Vector_memory_error;
+    }
     memcpy(tmp, self->data, self->nelem * self->nbytes);
 
     if (STL_Vector_allocate_size(self, new_size, YES) != STL_Vector_OK) {
@@ -240,29 +243,100 @@ void STL_Vector_clear(STL_Vector *self) {
 
 void *STL_Vector_insert_pos(STL_Vector *self, const void *elem, size_t pos) {
 
+    /* Returning value */
+    return STL_Vector_insert(self, elem, self->data + pos);
 }
 
-void *STL_Vector_insert(STL_Vector *self, const void *elem, const void *pos) {
+void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {
 
+    /* VarCheck */
+    if (self == NULL) {
+        return NULL;
+    }
+
+    /* Initializing variables */
+    size_t pos_val = (pos - self->data) / self->nbytes;
+
+    /* VarCheck */
+    if (pos > self->data + self->nbytes * self->nelem || pos < self->data) {
+        return NULL;
+    }
+
+    /* Main part */
+    if (++self->nelem > self->max_nelem) {
+        if (STL_Vector_reallocate(self, self->nbytes * self->max_nelem * 2) != STL_Vector_OK) {
+            return NULL;
+        }
+        pos = self->data + pos_val * self->nbytes;
+    }
+
+    memmove(pos, pos - self->nbytes, (self->data + self->nelem * self->nbytes) - (pos - self->nbytes));
+    /*    0         1         2       6       3        4         5    */
+    /* pos - 3   pos - 2   pos - 1   pos   pos + 1  pos + 2   pos + 3*/
+
+    memcpy(pos, elem, self->nbytes);
+
+    /* Returning value */
+    return pos;
 }
 
 void *STL_Vector_erase_pos(STL_Vector *self, size_t pos) {
 
+    /* Returning value */
+    return STL_Vector_erase(self, self->data + pos);
 }
 
-void *STL_Vector_erase(STL_Vector *self, const void *pos) {
+void *STL_Vector_erase(STL_Vector *self, void *pos) {
 
+    /* VarCheck */
+    if (self == NULL) {
+        return NULL;
+    }
+
+    if (STL_Vector_empty(self)) {
+        return NULL;
+    }
+
+    /* Main part */
+    --self->nelem;
+
+    memmove(pos, pos + self->nbytes, self->data + (self->nelem + 1) * self->nbytes - pos);
+
+    /* Returning value */
+    return pos;
 }
 
 int STL_Vector_push_back(STL_Vector *self, const void *elem) {
 
+    /* VarCheck */
+    if (self == NULL) {
+        return STL_Vector_memory_error;
+    }
 
+    /* Main part */
+    if (++self->nelem > self->max_nelem) {
+        if (STL_Vector_reallocate(self, self->nbytes * self->max_nelem * 2) != STL_Vector_OK) {
+            return STL_Vector_memory_error;
+        }
+    }
+
+    memcpy(self->data + self->nbytes * (self->nelem - 1), elem, self->nbytes);
+
+    /* Returning value */
+    return STL_Vector_OK;
 }
 
 void STL_Vector_pop_back(STL_Vector *self) {
 
-    /* Returning value */
-    STL_Vector_erase(self, STL_Vector_end(self));
+    /* VarCheck */
+    if (self == NULL) {
+        return;
+    }
+
+    /* Main part */
+    if (!STL_Vector_empty(self)) {
+        --self->nelem;
+    }
 }
 
 int STL_Vector_resize(STL_Vector *self, size_t count) {

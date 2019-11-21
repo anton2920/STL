@@ -79,10 +79,10 @@ int STL_Vector_shrink_to_fit(STL_Vector *self); /* Reduces memory usage by freei
 void STL_Vector_clear(STL_Vector *self); /* Clears the contents */
 
 void *STL_Vector_insert_pos(STL_Vector *self, const void *elem, size_t pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
-void *STL_Vector_insert(STL_Vector *self, const void *elem, const void *pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
+void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
 
 void *STL_Vector_erase_pos(STL_Vector *self, size_t pos); /* Erases element at pos. Returns iterator following removed element */
-void *STL_Vector_erase(STL_Vector *self, const void *pos); /* Erases element at pos. Returns iterator following removed element */
+void *STL_Vector_erase(STL_Vector *self, void *pos); /* Erases element at pos. Returns iterator following removed element */
 
 int STL_Vector_push_back(STL_Vector *self, const void *elem); /* Adds element to the end */
 void STL_Vector_pop_back(STL_Vector *self); /* Removes the last element */

@@ -12,4 +12,4 @@ set(STL_Vector STL_Vector/STL_Vector.c STL_Headers/STL/STL_Vector.h)
 add_library(STL STL_Headers/STL.h STL_Headers/STL_Config.h ${STL_List} ${STL_Queue} ${STL_Algorithm} ${STL_Stack} ${STL_Vector})
 
 add_executable(main main.c)
-target_link_libraries(main STL_Stack)
+target_link_libraries(main STL_Vector)
