@@ -29,7 +29,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #endif
 
 static void STL_List_check_pointers(STL_List *l) {
-    if (l->bp != NULL && l->lp == NULL) {
+
+    /* Main part */
+    if ((l->bp != NULL && l->lp == NULL)) {
         l->lp = l->bp;
     } else if (l->lp != NULL && l->bp == NULL) {
         l->bp = l->lp;
@@ -43,8 +45,14 @@ int STL_List_init(STL_List *l) {
         return STL_List_null_reference_error;
     }
 
-    l->lp = l->bp = NULL;
+    if ((l->bp = l->lp = malloc(sizeof(STL_List_node))) == NULL) {
+        return STL_List_memory_error;
+    }
+
     l->size = 0;
+
+    l->bp->next = l->bp->prev = l->bp->value = NULL;
+    l->bp->size = 0;
 
     /* Returning value */
     return STL_List_OK;
@@ -78,18 +86,8 @@ void STL_List_delete(STL_List *l) {
     }
 
     STL_List_clear(l);
-}
 
-void STL_List_clear(STL_List *l) {
-
-    /* Main part */
-    if (l == NULL) {
-        return;
-    }
-
-    while (l->size) {
-        STL_List_pop_back(l);
-    }
+    free(l->bp);
 }
 
 void *STL_List_front(const STL_List *l) {
@@ -118,8 +116,51 @@ void *STL_List_back(const STL_List *l) {
     if (l->lp == NULL) {
         return NULL;
     } else {
-        return l->lp->value;
+        return l->lp->prev->value;
     }
+}
+
+STL_List_node *STL_List_begin(STL_List *l) {
+
+    /* Returning value */
+    return l->bp;
+}
+
+STL_List_node *STL_List_end(STL_List *l) {
+
+    /* Returning value */
+    return l->lp;
+}
+
+int STL_List_empty(STL_List *l) {
+
+    /* Returning value */
+    return (l->size) ? not_empty : is_empty;
+}
+
+size_t STL_List_size(STL_List *l) {
+
+    /* Main part */
+    if (l == NULL) {
+        return 0;
+    }
+
+    /* Returning value */
+    return l->size;
+}
+
+void STL_List_clear(STL_List *l) {
+
+    /* Main part */
+    if (l == NULL) {
+        return;
+    }
+
+    while (l->size) {
+        STL_List_pop_back(l);
+    }
+
+    STL_List_check_pointers(l);
 }
 
 int STL_List_insert_pos(STL_List *l, const void *elem, size_t size, size_t pos) {
@@ -137,15 +178,11 @@ int STL_List_insert_pos(STL_List *l, const void *elem, size_t size, size_t pos) 
         return STL_List_index_error;
     }
 
-    if (l->bp == NULL) {
-        return STL_List_push_front(l, elem, size);
-    }
-
     if (pos > l->size / 2) {
         for (iter = STL_List_end(l), i = l->size; iter->prev != NULL && i >= pos; iter = iter->prev, --i)
             ;
     } else {
-        for (iter = STL_List_begin(l), i = 0; iter->next != NULL && i < pos; iter = iter->next, ++i)
+        for (iter = STL_List_begin(l), i = 0; iter->next != STL_List_end(l) && i < pos; iter = iter->next, ++i)
             ;
     }
 
@@ -174,11 +211,7 @@ int STL_List_insert(STL_List *l, const void *elem, size_t size, STL_List_node *p
     memcpy(new_element->value, elem, size);
     new_element->size = size;
 
-    if (l->bp == NULL) {
-        new_element->next = NULL;
-        new_element->prev = NULL;
-        l->bp = l->lp = new_element;
-    } else if (pos != NULL) {
+    if (pos != NULL) {
         new_element->next = pos;
         new_element->prev = pos->prev;
 
@@ -190,63 +223,18 @@ int STL_List_insert(STL_List *l, const void *elem, size_t size, STL_List_node *p
         /* Managing list */
         if (new_element->prev == NULL) {
             l->bp = new_element;
-        } else if (new_element->next == NULL) {
+        } else if (new_element->next->next == NULL) {
             l->lp = new_element;
         }
 
         STL_List_check_pointers(l);
+
+        ++l->size;
     }
 
-    ++l->size;
 
     /* Returning value */
     return STL_List_OK;
-}
-
-int STL_List_push_back(STL_List *l, const void *elem, size_t size) {
-
-    /* Initializing variables */
-    auto STL_List_node *new_element;
-
-    /* Main part */
-    if (l == NULL || elem == NULL) {
-        return STL_List_null_reference_error;
-    }
-
-    if ((new_element = (STL_List_node *) calloc(1, sizeof(STL_List_node))) == NULL) {
-        return STL_List_memory_error;
-    }
-    if ((new_element->value = malloc(size)) == NULL) {
-        return STL_List_memory_error;
-    }
-
-    memcpy(new_element->value, elem, size);
-    new_element->size = size;
-
-    if (l->bp == NULL) {
-        new_element->next = NULL;
-        new_element->prev = NULL;
-        l->bp = l->lp = new_element;
-    } else {
-        new_element->next = NULL;
-        new_element->prev = l->lp;
-        l->lp->next = new_element;
-
-        l->lp = new_element;
-    }
-
-    ++l->size;
-
-    STL_List_check_pointers(l);
-
-    /* Returning value */
-    return STL_List_OK;
-}
-
-int STL_List_push_front(STL_List *l, const void *elem, size_t size) {
-
-    /* Returning value */
-    return STL_List_insert(l, elem, size, l->bp);
 }
 
 STL_List_node *STL_List_erase_pos(STL_List *l, size_t pos) {
@@ -264,7 +252,7 @@ STL_List_node *STL_List_erase_pos(STL_List *l, size_t pos) {
         for (iter = STL_List_end(l), i = l->size; iter->prev != NULL && i >= pos; iter = iter->prev, --i)
             ;
     } else {
-        for (iter = STL_List_begin(l), i = 0; iter->next != NULL && i <= pos; iter = iter->next, ++i)
+        for (iter = STL_List_begin(l), i = 0; iter->next != STL_List_end(l) && i <= pos; iter = iter->next, ++i)
             ;
     }
 
@@ -279,6 +267,10 @@ STL_List_node *STL_List_erase(STL_List *l, STL_List_node *pos) {
 
     /* Main part */
     if (l == NULL || pos == NULL) {
+        return NULL;
+    }
+
+    if (pos->value == NULL) {
         return NULL;
     }
 
@@ -309,45 +301,28 @@ STL_List_node *STL_List_erase(STL_List *l, STL_List_node *pos) {
     return ret;
 }
 
+int STL_List_push_back(STL_List *l, const void *elem, size_t size) {
+
+    /* Returning value */
+    return STL_List_insert(l, elem, size, STL_List_end(l));
+}
+
 STL_List_node *STL_List_pop_back(STL_List *l) {
 
     /* Returning value */
-    return STL_List_erase(l, l->lp);
+    return STL_List_erase(l, STL_List_end(l)->prev);
+}
+
+int STL_List_push_front(STL_List *l, const void *elem, size_t size) {
+
+    /* Returning value */
+    return STL_List_insert(l, elem, size, STL_List_begin(l));
 }
 
 STL_List_node *STL_List_pop_front(STL_List *l) {
 
     /* Returning value */
-    return STL_List_erase(l, l->bp);
-}
-
-int STL_List_empty(STL_List *l) {
-
-    /* Returning value */
-    return (l->size) ? not_empty : is_empty;
-}
-
-size_t STL_List_size(STL_List *l) {
-
-    /* Main part */
-    if (l == NULL) {
-        return 0;
-    }
-
-    /* Returning value */
-    return l->size;
-}
-
-STL_List_node *STL_List_begin(STL_List *l) {
-
-    /* Returning value */
-    return l->bp;
-}
-
-STL_List_node *STL_List_end(STL_List *l) {
-
-    /* Returning value */
-    return l->lp;
+    return STL_List_erase(l, STL_List_begin(l));
 }
 
 void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *, const void *)) {
@@ -381,14 +356,6 @@ case_2:
             STL_List_push_back(self, i2->value, i2->size);
         }
     }
-
-}
-
-static void STL_List_sort_merge(STL_List_node **start1, STL_List_node **end1,
-        STL_List_node **start2, STL_List_node **end2, int (*cmp)(const void *, const void *))
-{
-
-    /* Initializing variables */
 
 }
 
@@ -433,8 +400,8 @@ void STL_List_swap(STL_List *self, STL_List *other) {
     self->size = tmp.size;
 }
 
-size_t STL_List_size_node(STL_List_node *l) {
+size_t STL_List_size_node(STL_List_node *node) {
 
     /* Returning value */
-    return l->size;
+    return node->size;
 }
