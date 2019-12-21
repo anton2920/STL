@@ -113,7 +113,7 @@ void *STL_List_back(const STL_List *l) {
     }
 
     /* Main part */
-    if (l->lp == NULL) {
+    if (l->lp->prev == NULL) {
         return NULL;
     } else {
         return l->lp->prev->value;
@@ -223,7 +223,7 @@ int STL_List_insert(STL_List *l, const void *elem, size_t size, STL_List_node *p
         /* Managing list */
         if (new_element->prev == NULL) {
             l->bp = new_element;
-        } else if (new_element->next->next == NULL) {
+        } else if (new_element->next == NULL) {
             l->lp = new_element;
         }
 
@@ -266,7 +266,7 @@ STL_List_node *STL_List_erase(STL_List *l, STL_List_node *pos) {
     auto STL_List_node *ret;
 
     /* Main part */
-    if (l == NULL || pos == NULL) {
+    if (l == NULL || pos == NULL || !l->size) {
         return NULL;
     }
 
