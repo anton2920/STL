@@ -70,6 +70,8 @@ static int STL_Vector_reallocate(STL_Vector *self, size_t new_size) {
 
     memcpy(self->data, tmp, self->nbytes * self->nelem);
 
+    free(tmp);
+
     /* Returning value */
     return STL_Vector_OK;
 }
@@ -160,14 +162,24 @@ void *STL_Vector_data(STL_Vector *self) {
 
 void *STL_Vector_begin(STL_Vector *self) {
 
+    /* VarCheck */
+    if (self == NULL) {
+        return NULL;
+    }
+
     /* Returning value */
-    return STL_Vector_front(self);
+    return self->data;
 }
 
 void *STL_Vector_end(STL_Vector *self) {
 
+    /* VarCheck */
+    if (self == NULL) {
+        return NULL;
+    }
+
     /* Returning value */
-    return STL_Vector_last(self);
+    return (self->data + self->nelem * self->nbytes + self->nbytes);
 }
 
 int STL_Vector_empty(STL_Vector *self) {
@@ -258,23 +270,26 @@ void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {
     size_t pos_val = (pos - self->data) / self->nbytes;
 
     /* VarCheck */
-    if (pos > self->data + self->nbytes * self->nelem || pos < self->data) {
+    if (pos > STL_Vector_end(self) || pos < STL_Vector_begin(self)) {
         return NULL;
     }
 
     /* Main part */
-    if (++self->nelem > self->max_nelem) {
+    if (++self->nelem >= self->max_nelem) {
         if (STL_Vector_reallocate(self, self->nbytes * self->max_nelem * 2) != STL_Vector_OK) {
             return NULL;
         }
         pos = self->data + pos_val * self->nbytes;
     }
 
-    memmove(pos, pos - self->nbytes, (self->data + self->nelem * self->nbytes) - (pos - self->nbytes));
+    if (pos != STL_Vector_end(self) - self->nbytes) {
+        memmove(pos, pos - self->nbytes, (self->data + self->nelem * self->nbytes) - (pos - self->nbytes));
+        memcpy(pos, elem, self->nbytes);
+    } else {
+        memcpy(pos - self->nbytes, elem, self->nbytes);
+    }
     /*    0         1         2       6       3        4         5    */
     /* pos - 3   pos - 2   pos - 1   pos   pos + 1  pos + 2   pos + 3*/
-
-    memcpy(pos, elem, self->nbytes);
 
     /* Returning value */
     return pos;
@@ -314,16 +329,16 @@ int STL_Vector_push_back(STL_Vector *self, const void *elem) {
     }
 
     /* Main part */
-    if (++self->nelem > self->max_nelem) {
+    /*if (++self->nelem >= self->max_nelem) {
         if (STL_Vector_reallocate(self, self->nbytes * self->max_nelem * 2) != STL_Vector_OK) {
             return STL_Vector_memory_error;
         }
     }
 
-    memcpy(self->data + self->nbytes * (self->nelem - 1), elem, self->nbytes);
+    memcpy(self->data + self->nbytes * (self->nelem - 1), elem, self->nbytes);*/
 
     /* Returning value */
-    return STL_Vector_OK;
+    return (int) STL_Vector_insert(self, elem, STL_Vector_end(self));
 }
 
 void STL_Vector_pop_back(STL_Vector *self) {
