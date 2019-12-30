@@ -29,7 +29,7 @@ AC_ENABLE_SHARED
 AC_PROG_LIBTOOL
 
 # Check for essential libraries
-AC_CHECK_HEADERS([stddef.h string.h stdlib.h], [], [
+AC_CHECK_HEADERS([stddef.h string.h stdlib.h limits.h], [], [
 	AC_MSG_ERROR([unable to find necessary headers])
 	])
 

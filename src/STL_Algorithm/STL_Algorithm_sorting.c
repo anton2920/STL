@@ -24,6 +24,10 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
     #include <string.h>
 #endif
 
+#if (HAVE_MATH_H == 1)
+    #include <math.h>
+#endif
+
 /* Basic sorting algorithms */
 void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
@@ -72,7 +76,7 @@ void STL_selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const v
 void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
 
     /* Initializing variables */
-    register size_t i, j;
+    register long i, j;
     auto char *p = (char *) pbase, key[nbytes];
 
     /* Main part */
@@ -95,7 +99,10 @@ void STL_shell_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
     register size_t i, j, gap;
 
     /* Main part */
-    for (gap = n / 2; gap > 0; gap >>= 1) {
+    for (gap = 1; gap < n / 3 ; gap = gap * 3 + 1)
+        ;
+
+    for ( ; gap > 0; gap = (gap - 1) / 3) {
         for (i = gap; i < n; ++i) {
             memcpy(temp, (p + i * nbytes), nbytes);
             for (j = i; j >= gap && (*cmp)((const void *) (p + (j - gap) * nbytes), (const void *) temp) > 0; j -= gap) {

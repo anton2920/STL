@@ -70,7 +70,7 @@ int STL_List_init_cpy(STL_List *self, STL_List *other) {
         return code;
     }
 
-    for (iter = STL_List_begin(other); iter != NULL; iter = iter->next) {
+    for (iter = STL_List_begin(other); iter != STL_List_end(other); iter = iter->next) {
         STL_List_push_back(self, iter->value, iter->size);
     }
 
@@ -244,7 +244,7 @@ STL_List_node *STL_List_erase_pos(STL_List *l, size_t pos) {
     auto STL_List_node *iter;
 
     /* Main part */
-    if (l == NULL) {
+    if (l == NULL || STL_List_empty(l)) {
         return NULL;
     }
 
@@ -266,7 +266,7 @@ STL_List_node *STL_List_erase(STL_List *l, STL_List_node *pos) {
     auto STL_List_node *ret;
 
     /* Main part */
-    if (l == NULL || pos == NULL || !l->size) {
+    if (l == NULL || pos == NULL || STL_List_empty(l)) {
         return NULL;
     }
 

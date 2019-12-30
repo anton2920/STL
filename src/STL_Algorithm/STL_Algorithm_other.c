@@ -29,13 +29,13 @@ void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nby
 
     /* Main part */
     for ( ; n > 0; n >>= 1) {
-        pivot = pbase + (n >> 1) * nbytes;
+        pivot = p + (n >> 1) * nbytes;
         if (!(res = (*cmp)(key, (const void *) pivot))) {
             return (void *) pivot;
         }
 
         if (res > 0) {
-            pbase = pivot + nbytes;
+            p = pivot + nbytes;
             --n;
         }
     }

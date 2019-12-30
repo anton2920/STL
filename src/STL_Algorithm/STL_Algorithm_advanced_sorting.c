@@ -24,6 +24,14 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
     #include <string.h>
 #endif
 
+#if (HAVE_LIMITS_H == 1)
+    #include <limits.h>
+#endif
+
+#if (HAVE_STDLIB_H == 1)
+#include <stdlib.h>
+#endif
+
 /* Miscellaneous routines */
 static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (*cmp)(const void *, const void *)) {
 
@@ -34,7 +42,7 @@ static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (
     /* Initializing variables */
     auto char *p = (char *) arr;
     auto char *x = p + high * nbytes;
-    register size_t i = low - 1, j, res = 0;
+    register size_t i = low - 1, j;
 
     /* Main part */
     for (j = low; j <= high - 1; ++j) {
@@ -56,7 +64,13 @@ static void merge(void *pbase, size_t nbytes, size_t left, int mid, int right, i
     register size_t i, j, k;
     auto size_t n1 = mid - left + 1, n2 = right - mid;
 
-    auto char L[n1 * nbytes], R[n2 * nbytes];
+    /*auto char L[n1 * nbytes], R[n2 * nbytes];*/
+    auto char *L = malloc(n1 * nbytes);
+    auto char *R = malloc(n2 * nbytes);
+
+    if (L == NULL || R == NULL) {
+        return;
+    }
 
     /* Main part */
     for (i = 0; i < n1; ++i) {
@@ -84,10 +98,28 @@ static void merge(void *pbase, size_t nbytes, size_t left, int mid, int right, i
     for ( ; j < n2; ++j, ++k) {
         memcpy((p + k * nbytes), (R + j * nbytes), nbytes);
     }
+
+    free(L);
+    free(R);
 }
+
+typedef struct {
+    char *lo;
+    char *hi;
+} stack_node;
+
+#define STACK_SIZE          (CHAR_BIT * sizeof (size_t))
+#define PUSH(low, high)     ((void) ((top->lo = (low)), (top->hi = (high)), ++top))
+#define POP(low, high)      ((void) (--top, (low = top->lo), (high = top->hi)))
+#define STACK_NOT_EMPTY     (stack < top)
 
 /* Advanced sorting algorithms */
 void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+
+    /* VarCheck */
+    if (n <= 1) {
+        return;
+    }
 
     /* Initializing variables */
     auto char *base_ptr = (char *) pbase, *piv = NULL;
@@ -95,27 +127,23 @@ void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
     auto char *hi = &lo[nbytes * (n - 1)];
 
     /* Auxiliary stack sh**t */
-    auto char *stack[(hi - lo) + 1];
-    register int top = -1;
+    auto stack_node stack[STACK_SIZE];
+    register stack_node *top = stack;
 
-    stack[++top * nbytes] = lo;
-    stack[++top * nbytes] = hi;
+    PUSH(lo, hi);
 
     /* Main part */
-    for ( ; top >= 0; ) {
-        hi = stack[top-- * nbytes];
-        lo = stack[top-- * nbytes];
+    for ( ; STACK_NOT_EMPTY; ) {
+        POP(lo, hi);
 
         piv = pivot_arr(pbase, nbytes, (lo - base_ptr) / nbytes, (hi - base_ptr) / nbytes, cmp);
 
         if (piv - nbytes > lo) {
-            stack[++top * nbytes] = lo;
-            stack[++top * nbytes] = piv - nbytes;
+            PUSH(lo, piv-nbytes);
         }
 
         if (piv + nbytes < hi) {
-            stack[++top * nbytes] = piv + nbytes;
-            stack[++top * nbytes] = hi;
+            PUSH(piv + nbytes, hi);
         }
     }
 }
