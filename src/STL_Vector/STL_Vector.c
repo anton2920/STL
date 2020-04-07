@@ -190,7 +190,7 @@ int STL_Vector_empty(STL_Vector *self) {
     }
 
     /* Returning value */
-    return (!self->nelem) ? is_empty : not_empty;
+    return (!self->nelem) ? vector_is_empty : vector_not_empty;
 }
 
 size_t STL_Vector_size(STL_Vector *self) {

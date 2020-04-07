@@ -48,8 +48,8 @@ enum STL_Vector_errors {
 
 /* STL_Vector states */
 enum STL_Vector_states {
-    not_empty = 0,
-    is_empty
+    vector_not_empty = 0,
+    vector_is_empty
 };
 
 /* STL_Vector methods */

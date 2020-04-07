@@ -42,13 +42,13 @@ void STL_Queue_delete(STL_Queue *self) {
 void *STL_Queue_front(const STL_Queue *queue) {
 
     /* Returning value */
-    return STL_List_front((STL_List *) queue);
+    return STL_List_back((STL_List *) queue);
 }
 
 void *STL_Queue_back(const STL_Queue *queue) {
 
     /* Returning value */
-    return STL_List_back((STL_List *) queue);
+    return STL_List_front((STL_List *) queue);
 }
 
 int STL_Queue_empty(const STL_Queue *queue) {

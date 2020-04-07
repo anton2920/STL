@@ -55,7 +55,7 @@ void *STL_Queue_front(const STL_Queue *queue); /* Accesses the first element */
 void *STL_Queue_back(const STL_Queue *queue); /* Accesses the last element */
 
 /* Capacity */
-int STL_Queue_empty(const STL_Queue *queue); /* Returns STL_List_states::is_empty if STL_Queue->size == 0 */
+int STL_Queue_empty(const STL_Queue *queue); /* Returns STL_List_states::list_is_empty if STL_Queue->size == 0 */
 size_t STL_Queue_size(const STL_Queue *queue); /* Returns STL_Queue->size */
 
 /* Modifiers */

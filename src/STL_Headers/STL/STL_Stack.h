@@ -53,7 +53,7 @@ void STL_Stack_delete(STL_Stack *stack); /* Destructs the stack */
 void *STL_Stack_top(const STL_Stack *stack); /* Accesses stack's top element */
 
 /* Capacity */
-int STL_Stack_empty(const STL_Stack *stack); /* Returns STL_List_states::is_empty if STL_Stack->size == 0 */
+int STL_Stack_empty(const STL_Stack *stack); /* Returns STL_List_states::list_is_empty if STL_Stack->size == 0 */
 size_t STL_Stack_size(const STL_Stack *stack); /* Returns STL_Stack->size */
 
 /* Modifiers */

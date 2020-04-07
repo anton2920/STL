@@ -135,7 +135,7 @@ STL_List_node *STL_List_end(STL_List *l) {
 int STL_List_empty(STL_List *l) {
 
     /* Returning value */
-    return (l->size) ? not_empty : is_empty;
+    return (l->size) ? list_not_empty : list_is_empty;
 }
 
 size_t STL_List_size(STL_List *l) {

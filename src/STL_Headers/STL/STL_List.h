@@ -42,8 +42,8 @@ enum STL_List_errors {
 
 /* STL_List states */
 enum STL_List_states {
-    not_empty = 0,
-    is_empty
+    list_not_empty = 0,
+    list_is_empty
 };
 
 /* STL_List methods */
