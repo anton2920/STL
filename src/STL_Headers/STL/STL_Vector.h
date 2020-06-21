@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -32,8 +32,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 /* Definition of STL_Vector type */
 typedef struct __STL_Vector {
     void *data;
+
     size_t nbytes;
-    
     size_t nelem;
     size_t max_nelem;
 } STL_Vector;
@@ -78,7 +78,7 @@ int STL_Vector_shrink_to_fit(STL_Vector *self); /* Reduces memory usage by freei
 /* Modifiers */
 void STL_Vector_clear(STL_Vector *self); /* Clears the contents */
 
-void *STL_Vector_insert_pos(STL_Vector *self, const void *elem, size_t pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
+void *STL_Vector_insert_at(STL_Vector *self, const void *elem, size_t pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
 void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos); /* Inserts elem before pos. Returns iterator pointing to the inserted value */
 
 void *STL_Vector_erase_pos(STL_Vector *self, size_t pos); /* Erases element at pos. Returns iterator following removed element */

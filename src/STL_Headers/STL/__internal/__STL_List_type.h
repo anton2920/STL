@@ -18,28 +18,21 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../STL_Headers/STL/STL_Algorithm.h"
+#ifndef SRC___STL_LIST_TYPE_H
+#define SRC___STL_LIST_TYPE_H
 
-/* Miscellaneous routines */
-void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+/* Definition of STL_List type */
+typedef struct __STL_List_node {
+    void *value;
+    size_t size;
+    struct __STL_List_node *next;
+    struct __STL_List_node *prev;
+} STL_List_node;
 
-    /* Initializing variables */
-    auto const char *p = (char *) pbase, *pivot = NULL;
-    int res;
+typedef struct __STL_List {
+    STL_List_node *bp;
+    STL_List_node *lp;
+    size_t size;
+} STL_List;
 
-    /* Main part */
-    for ( ; n > 0; n >>= 1) {
-        pivot = p + (n >> 1) * nbytes;
-        if (!(res = (*cmp)(key, (const void *) pivot))) {
-            return (void *) pivot;
-        }
-
-        if (res > 0) {
-            p = pivot + nbytes;
-            --n;
-        }
-    }
-
-    /* Returning value */
-    return NULL;
-}
+#endif

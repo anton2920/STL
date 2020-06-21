@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -30,7 +30,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #endif
 
 /* Include STL_List type definition */
-#include "__STL_List_type.h"
+#include "__internal/__STL_List_type.h"
 
 /* STL_List errors */
 enum STL_List_errors {
@@ -67,10 +67,10 @@ size_t STL_List_size(STL_List *list); /* Returns the number of elements */
 /* Modifiers */
 void STL_List_clear(STL_List *list); /* Clears the contents */
 
-int STL_List_insert_pos(STL_List *list, const void *elem, size_t size, size_t pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
+int STL_List_insert_at(STL_List *list, const void *elem, size_t size, size_t pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
 int STL_List_insert(STL_List *list, const void *elem, size_t size, STL_List_node *pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
-STL_List_node *STL_List_erase_pos(STL_List *list, size_t pos); /* Removes element before "pos". Returns node after deleted element if OK */
-STL_List_node *STL_List_erase(STL_List *list, STL_List_node *pos); /* Removes element before "pos". Returns node after deleted element if OK */
+STL_List_node *STL_List_erase_at(STL_List *list, size_t pos); /* Removes element before "pos". Returns node after deleted element if OK */
+STL_List_node *STL_List_erase(STL_List *list, STL_List_node *pos); /* Removes element at "pos". Returns node after deleted element if OK */
 
 int STL_List_push_back(STL_List *list, const void *elem, size_t size); /* Inserts element of size "size" at address "elem" at the last position. Returns STL_List_OK if OK */
 STL_List_node *STL_List_pop_back(STL_List *list); /* Removes element at the last position. Returns node after deleted element if OK */
@@ -81,6 +81,7 @@ void STL_List_swap(STL_List *self, STL_List *other); /* Swaps the contents of tw
 
 /* Operations */
 void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *, const void *)); /* Merges two sorted lists into one. The lists should be sorted into ascending order */
+void STL_List_reverse(STL_List *self); /* Reverses the order of elements */
 void STL_List_sort(STL_List *list, size_t n, int (*cmp)(const void *, const void *)); /* Sorts the list */
 
 /* Miscellaneous routines */

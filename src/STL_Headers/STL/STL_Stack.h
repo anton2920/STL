@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -28,8 +28,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #if (HAVE_STDDEF_H == 1)
     #include <stddef.h>
 #endif
+
 /* Include STL_List type definition */
-#include "__STL_List_type.h"
+#include "__internal/__STL_List_type.h"
 
 /* Definition of STL_Queue type */
 typedef STL_List STL_Stack;
@@ -41,6 +42,12 @@ enum STL_Stack_errors {
     STL_Stack_memory_error,          /* If STL_Stack routine can't allocate memory */
     STL_Stack_index_error,           /* If desired position is wrong */
     STL_Stack_null_reference_error   /* If (STL_Stack *) or (const void *elem) is NULL */
+};
+
+/* STL_Stack states */
+enum STL_Stack_states {
+    stack_not_empty = 0,
+    stack_is_empty
 };
 
 /* STL_Stack methods */

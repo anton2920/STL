@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../STL_Headers/STL/STL_Vector.h"
+#include "../../STL_Headers/STL/STL_Vector.h"
 
 #if (HAVE_STDLIB_H == 1)
     #include <stdlib.h>
@@ -253,10 +253,10 @@ void STL_Vector_clear(STL_Vector *self) {
     self->nelem = 0;
 }
 
-void *STL_Vector_insert_pos(STL_Vector *self, const void *elem, size_t pos) {
+void *STL_Vector_insert_at(STL_Vector *self, const void *elem, size_t pos) {
 
     /* Returning value */
-    return STL_Vector_insert(self, elem, self->data + pos);
+    return STL_Vector_insert(self, elem, STL_Vector_at(self, pos));
 }
 
 void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {

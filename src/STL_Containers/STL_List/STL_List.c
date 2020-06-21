@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../STL_Headers/STL/STL_List.h"
+#include "../../STL_Headers/STL/STL_List.h"
 
 #if (HAVE_STDLIB_H == 1)
     #include <stdlib.h>
@@ -163,7 +163,7 @@ void STL_List_clear(STL_List *l) {
     STL_List_check_pointers(l);
 }
 
-int STL_List_insert_pos(STL_List *l, const void *elem, size_t size, size_t pos) {
+int STL_List_insert_at(STL_List *l, const void *elem, size_t size, size_t pos) {
 
     /* Initializing variables */
     register size_t i;
@@ -182,7 +182,7 @@ int STL_List_insert_pos(STL_List *l, const void *elem, size_t size, size_t pos) 
         for (iter = STL_List_end(l), i = l->size; iter->prev != NULL && i >= pos; iter = iter->prev, --i)
             ;
     } else {
-        for (iter = STL_List_begin(l), i = 0; iter->next != STL_List_end(l) && i < pos; iter = iter->next, ++i)
+        for (iter = STL_List_begin(l), i = 0; iter != STL_List_end(l) && i < pos; iter = iter->next, ++i)
             ;
     }
 
@@ -230,6 +230,8 @@ int STL_List_insert(STL_List *l, const void *elem, size_t size, STL_List_node *p
         STL_List_check_pointers(l);
 
         ++l->size;
+    } else {
+        free(new_element);
     }
 
 
@@ -237,7 +239,7 @@ int STL_List_insert(STL_List *l, const void *elem, size_t size, STL_List_node *p
     return STL_List_OK;
 }
 
-STL_List_node *STL_List_erase_pos(STL_List *l, size_t pos) {
+STL_List_node *STL_List_erase_at(STL_List *l, size_t pos) {
 
     /* Initializing variables */
     register size_t i;
@@ -338,7 +340,7 @@ void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *, co
     /* Main part */
     if (!STL_List_empty(self)) {
         for (i1 = STL_List_begin(self), i2 = STL_List_begin(other);
-             i1 != NULL && i2 != NULL; ) {
+             i1 != STL_List_end(self) && i2 != STL_List_end(other); ) {
             if (cmp(i1->value, i2->value) < 0) {
                 i1 = i1->next;
             } else {
@@ -352,11 +354,24 @@ void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *, co
         }
     } else {
 case_2:
-        for (i2 = STL_List_begin(other); i2 != NULL; i2 = STL_List_erase(other, i2)) {
+        for (i2 = STL_List_begin(other); i2 != STL_List_end(other); i2 = STL_List_erase(other, i2)) {
             STL_List_push_back(self, i2->value, i2->size);
         }
     }
 
+}
+
+void STL_List_reverse(STL_List *self) {
+
+    /* Initializing variables */
+    auto STL_List_node *iter, *iter_b;
+    register size_t i;
+
+    /* Main part */
+    for (i = 0, iter = STL_List_begin(self), iter_b = STL_List_end(self)->prev; i < STL_List_size(self) / 2;
+            iter = iter->next, iter_b = iter_b->prev, ++i) {
+        STL_List_swap_nodes(iter, iter_b);
+    }
 }
 
 void STL_List_sort(STL_List *l, size_t n, int (*cmp)(const void *, const void *)) {

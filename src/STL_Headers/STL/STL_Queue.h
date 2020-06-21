@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019
+Copyright © Pavlovsky Anton, 2019-2020
 
 This file is part of STL.
 
@@ -30,7 +30,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #endif
 
 /* Include STL_List type definition */
-#include "__STL_List_type.h"
+#include "__internal/__STL_List_type.h"
 
 /* Definition of STL_Queue type */
 typedef STL_List STL_Queue;
@@ -42,6 +42,12 @@ enum STL_Queue_errors {
     STL_Queue_memory_error,          /* If STL_Queue routine can't allocate memory */
     STL_Queue_index_error,           /* If desired position is wrong */
     STL_Queue_null_reference_error   /* If (STL_Queue *) or (const void *elem) is NULL */
+};
+
+/* STL_Queue states */
+enum STL_Queue_states {
+    queue_not_empty = 0,
+    queue_is_empty
 };
 
 /* STL_Queue methods */
