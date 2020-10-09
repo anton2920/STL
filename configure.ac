@@ -14,8 +14,11 @@ AC_CONFIG_MACRO_DIR([m4])
 
 # Enable «automake» to simplify creating makefiles:
 AM_INIT_AUTOMAKE
-AC_CONFIG_FILES([Makefile src/Makefile src/STL_List/Makefile src/STL_Queue/Makefile src/STL_Stack/Makefile 	\
- 				src/STL_Algorithm/Makefile src/STL_Vector/Makefile doc/Makefile man/Makefile examples/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile  src/STL_Containers/Makefile src/STL_Containers/STL_List/Makefile \
+				src/STL_Containers/STL_Queue/Makefile src/STL_Containers/STL_Stack/Makefile \
+				src/STL_Containers/STL_Vector/Makefile src/STL_Containers/STL_String/Makefile \
+				src/STL_Containers/STL_Forward_list/Makefile
+				src/STL_Algorithm/Makefile doc/Makefile man/Makefile examples/Makefile])
 
 # Look for a C (CXX) compiler:
 AC_LANG([C])

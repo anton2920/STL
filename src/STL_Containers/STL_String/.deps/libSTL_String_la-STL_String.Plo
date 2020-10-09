@@ -1,21 +1,21 @@
-libSTL_List_la-STL_List.lo: STL_List.c /usr/include/stdc-predef.h \
- ../../STL_Headers/STL/STL_List.h ../../STL_Headers/STL/../STL_Config.h \
+libSTL_String_la-STL_String.lo: STL_String.c /usr/include/stdc-predef.h \
+ ../../STL_Headers/STL/STL_String.h ../../STL_Headers/STL/../STL_Config.h \
  /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
- ../../STL_Headers/STL/__internal/__STL_List_type.h /usr/include/stdlib.h \
- /usr/include/bits/libc-header-start.h /usr/include/features.h \
- /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
- /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
- /usr/include/gnu/stubs-64.h /usr/include/bits/waitflags.h \
- /usr/include/bits/waitstatus.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h /usr/include/sys/types.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
- /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
- /usr/include/bits/stdint-intn.h /usr/include/endian.h \
- /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
- /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
- /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
- /usr/include/bits/types/__sigset_t.h \
+ ../../STL_Headers/STL/__internal/__STL_Basic_string.h \
+ /usr/include/stdlib.h /usr/include/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/include/sys/types.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
+ /usr/include/bits/types/timer_t.h /usr/include/bits/stdint-intn.h \
+ /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
  /usr/include/bits/types/struct_timeval.h \
  /usr/include/bits/types/struct_timespec.h \
  /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
@@ -26,13 +26,13 @@ libSTL_List_la-STL_List.lo: STL_List.c /usr/include/stdc-predef.h \
 
 /usr/include/stdc-predef.h:
 
-../../STL_Headers/STL/STL_List.h:
+../../STL_Headers/STL/STL_String.h:
 
 ../../STL_Headers/STL/../STL_Config.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h:
 
-../../STL_Headers/STL/__internal/__STL_List_type.h:
+../../STL_Headers/STL/__internal/__STL_Basic_string.h:
 
 /usr/include/stdlib.h:
 

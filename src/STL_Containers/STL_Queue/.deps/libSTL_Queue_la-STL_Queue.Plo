@@ -1,16 +1,17 @@
 libSTL_Queue_la-STL_Queue.lo: STL_Queue.c /usr/include/stdc-predef.h \
- ../STL_Headers/STL/STL_Queue.h ../STL_Headers/STL/../STL_Config.h \
+ ../../STL_Headers/STL/STL_Queue.h ../../STL_Headers/STL/../STL_Config.h \
  /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
- ../STL_Headers/STL/__STL_List_type.h ../STL_Headers/STL/STL_List.h
+ ../../STL_Headers/STL/__internal/__STL_List_type.h \
+ ../../STL_Headers/STL/STL_List.h
 
 /usr/include/stdc-predef.h:
 
-../STL_Headers/STL/STL_Queue.h:
+../../STL_Headers/STL/STL_Queue.h:
 
-../STL_Headers/STL/../STL_Config.h:
+../../STL_Headers/STL/../STL_Config.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h:
 
-../STL_Headers/STL/__STL_List_type.h:
+../../STL_Headers/STL/__internal/__STL_List_type.h:
 
-../STL_Headers/STL/STL_List.h:
+../../STL_Headers/STL/STL_List.h:

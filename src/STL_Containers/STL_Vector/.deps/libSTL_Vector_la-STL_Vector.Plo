@@ -1,5 +1,5 @@
 libSTL_Vector_la-STL_Vector.lo: STL_Vector.c /usr/include/stdc-predef.h \
- ../STL_Headers/STL/STL_Vector.h ../STL_Headers/STL/../STL_Config.h \
+ ../../STL_Headers/STL/STL_Vector.h ../../STL_Headers/STL/../STL_Config.h \
  /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
  /usr/include/stdlib.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/sys/cdefs.h \
@@ -25,9 +25,9 @@ libSTL_Vector_la-STL_Vector.lo: STL_Vector.c /usr/include/stdc-predef.h \
 
 /usr/include/stdc-predef.h:
 
-../STL_Headers/STL/STL_Vector.h:
+../../STL_Headers/STL/STL_Vector.h:
 
-../STL_Headers/STL/../STL_Config.h:
+../../STL_Headers/STL/../STL_Config.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h:
 

@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = $(ACLOCAL_AMFLAGS)
 
 otherincludedir = $(includedir)/STL
-otherinclude_HEADERS = ../STL_Headers/STL/STL_Queue.h
+otherinclude_HEADERS = ../../STL_Headers/STL/STL_Queue.h
 lib_LTLIBRARIES = libSTL_Queue.la
 
 # libSTL_Queue.la

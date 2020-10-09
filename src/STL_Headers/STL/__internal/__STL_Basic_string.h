@@ -18,21 +18,16 @@ You should have received a copy of the GNU General Public License
 along with STL. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef SRC___STL_LIST_TYPE_H
-#define SRC___STL_LIST_TYPE_H
+#ifndef SRC___STL_BASIC_STRING_H
+#define SRC___STL_BASIC_STRING_H
 
-/* Definition of STL_List type */
-typedef struct __STL_List_node {
-    void *value;
-    size_t size;
-    struct __STL_List_node *next;
-    struct __STL_List_node *prev;
-} STL_List_node;
+/* Definition of STL_Basic_string */
+typedef struct __STL_Basic_string {
+    void *data;
 
-typedef struct __STL_List {
-    STL_List_node *bp;
-    STL_List_node *lp;
-    size_t size;
-} STL_List;
+    size_t nchar;
+    size_t charWidth;
+    size_t max_nchar;
+} STL_Basic_string;
 
 #endif
