@@ -111,4 +111,6 @@ size_t STL_String_find_first_not_of(STL_String *self, const char *str); /* Find 
 size_t STL_String_find_last_of(STL_String *self, const char *str); /* Find the last occurrence of characters */
 size_t STL_String_find_last_not_of(STL_String *self, const char *str); /* Find the last absence of characters */
 
+size_t STL_String_npos(); /* Special value. The exact meaning depends on the context */
+
 #endif

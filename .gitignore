@@ -56,3 +56,10 @@ src/STL_Stack/libSTL_Stack.la
 src/STL_Stack/libSTL_Stack_la-STL_Stack.lo
 src/libSTL.la
 src/main.c
+src/STL_Containers/STL_Forward_list/.deps/
+src/STL_Containers/STL_List/.deps/
+src/STL_Containers/STL_Queue/.deps/
+src/STL_Containers/STL_Stack/.deps/
+src/STL_Containers/STL_String/.deps/
+src/STL_Containers/STL_Vector/.deps/
+

@@ -285,20 +285,19 @@ int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count) {
     auto size_t newSize;
 
     /* Main part */
-    if (strPos != NULL) {
-        newSize = self->nchar + count;
-        while (newSize >= self->max_nchar) {
-            if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
-                return STL_String_memory_error;
-            }
-        }
-        self->nchar = newSize;
-        memmove(self->data + pos + count,
-                self->data + pos, count);
-        for (i = 0; i < count; ++i) {
-            *((char *) (self->data + pos + i)) = ch;
+    newSize = self->nchar + count;
+    while (newSize >= self->max_nchar) {
+        if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
+            return STL_String_memory_error;
         }
     }
+    self->nchar = newSize;
+    memmove(self->data + pos + count,
+            self->data + pos, count);
+    for (i = 0; i < count; ++i) {
+        *((char *) (self->data + pos + i)) = ch;
+    }
+    *((char *) (self->data + self->nchar)) = '\0';
 
     /* Returning value */
     return STL_String_OK;
@@ -321,18 +320,16 @@ int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
     auto size_t newSize;
 
     /* Main part */
-    if (strPos != NULL) {
-        newSize = self->nchar + len;
-        while (newSize >= self->max_nchar) {
-            if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
-                return STL_String_memory_error;
-            }
+    newSize = self->nchar + len;
+    while (newSize >= self->max_nchar) {
+        if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
+            return STL_String_memory_error;
         }
-        self->nchar = newSize;
-        memmove(self->data + pos + len,
-                self->data + pos, len);
-        memcpy(self->data + pos, str, len);
     }
+    self->nchar = newSize;
+    memmove(self->data + pos + len,
+            self->data + pos, strlen(self->data + pos));
+    memcpy(self->data + pos, str, len);
 
     /* Returning value */
     return STL_String_OK;
@@ -354,7 +351,7 @@ void STL_String_erase(STL_String *self, size_t pos, size_t count) {
     /* Main part */
     self->nchar -= count;
 
-    memmove(self->data + pos, self->data + pos + toRemove, toRemove);
+    memmove(self->data + pos, self->data + pos + toRemove, strlen(self->data + pos + toRemove) + 1);
 }
 
 void STL_String_push_back(STL_String *self, char ch) {
@@ -648,6 +645,12 @@ size_t STL_String_find_last_not_of(STL_String *self, const char *str) {
             return iter - (char *) self->data;
         }
     }
+
+    /* Returning value */
+    return npos;
+}
+
+size_t STL_String_npos() {
 
     /* Returning value */
     return npos;
