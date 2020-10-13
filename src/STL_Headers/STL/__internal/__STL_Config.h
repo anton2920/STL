@@ -1,5 +1,5 @@
-/* src/STL_Headers/STL_Config.h.  Generated from STL_Config.h.in by configure.  */
-/* src/STL_Headers/STL_Config.h.in.  Generated from configure.ac by autoheader.  */
+/* src/STL_Headers/STL/__internal/__STL_Config.h.  Generated from __STL_Config.h.in by configure.  */
+/* src/STL_Headers/STL/__internal/__STL_Config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1

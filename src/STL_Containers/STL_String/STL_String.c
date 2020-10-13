@@ -286,7 +286,7 @@ int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count) {
 
     /* Main part */
     newSize = self->nchar + count;
-    while (newSize >= self->max_nchar) {
+    while (newSize >= self->max_nchar - 1) {
         if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
             return STL_String_memory_error;
         }
@@ -321,7 +321,7 @@ int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
 
     /* Main part */
     newSize = self->nchar + len;
-    while (newSize >= self->max_nchar) {
+    while (newSize >= self->max_nchar - 1) {
         if (STL_String_reallocate(self, self->max_nchar * 2) != STL_String_OK) {
             return STL_String_memory_error;
         }

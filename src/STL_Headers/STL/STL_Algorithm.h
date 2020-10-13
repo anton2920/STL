@@ -22,7 +22,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #define SRC_STL_ALGORITHM_H
 
 /* Include autoconf config.h */
-#include "../STL_Config.h"
+#include "__internal/__STL_Config.h"
 
 /* Header inclusion */
 #if (HAVE_STDDEF_H == 1)

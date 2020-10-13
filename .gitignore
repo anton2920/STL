@@ -62,4 +62,5 @@ src/STL_Containers/STL_Queue/.deps/
 src/STL_Containers/STL_Stack/.deps/
 src/STL_Containers/STL_String/.deps/
 src/STL_Containers/STL_Vector/.deps/
-
+src/STL_Headers/STL/__internal/__STL_Config.h.in
+src/STL_Headers/STL/__internal/stamp-h1

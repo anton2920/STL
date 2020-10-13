@@ -4,4 +4,7 @@ SUBDIRS = STL_Algorithm STL_Containers
 
 AM_CFLAGS = -I$(top_srcdir)/src $(AM_CFLAGS)
 
-include_HEADERS = STL_Headers/STL.h STL_Headers/STL_Config.h
+include_HEADERS = STL_Headers/STL.h
+
+internalincludedir = $(includedir)/STL/__internal
+internalinclude_HEADERS = STL_Headers/STL/__internal/__STL_Config.h
