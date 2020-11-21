@@ -13,25 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66bc742f-23ee-4b6b-ba7e-841fe208b351" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../configure.ac" beforeDir="false" afterPath="$PROJECT_DIR$/../configure.ac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile.am" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile.am" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Containers/STL_String/STL_String.c" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Containers/STL_String/STL_String.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Algorithm.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Algorithm.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Forward_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Forward_list.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_List.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_List.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Queue.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Queue.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Stack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_String.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_String.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Unordered_map.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Unordered_map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STL_Headers/STL_Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/__internal/__STL_Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Containers/STL_Vector/STL_Vector.c" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Containers/STL_Vector/STL_Vector.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +41,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -65,12 +49,12 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.STL">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="STL" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="STL" CONFIG_NAME="Debug">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="STL" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="STL" CONFIG_NAME="Debug">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -100,6 +84,7 @@
       <updated>1602581330640</updated>
       <workItem from="1602581331858" duration="690000" />
       <workItem from="1602591832366" duration="783000" />
+      <workItem from="1605944958991" duration="1731000" />
     </task>
     <servers />
   </component>
@@ -107,6 +92,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="417" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605945042954">
+      <screen x="0" y="0" width="1920" height="1038" />
+    </state>
+    <state x="417" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1038@0.0.1920.1038" timestamp="1605945042954" />
     <state width="1872" height="264" key="GridCell.Tab.0.bottom" timestamp="1602585724695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
