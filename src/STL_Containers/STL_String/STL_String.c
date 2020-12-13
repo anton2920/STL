@@ -280,7 +280,6 @@ int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count) {
     }
 
     /* Initializing variables */
-    auto char *strPos = self->data + pos;
     register size_t i;
     auto size_t newSize;
 
@@ -315,7 +314,6 @@ int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
     }
 
     /* Initializing variables */
-    auto char *strPos = self->data + pos;
     auto size_t len = strlen(str);
     auto size_t newSize;
 
@@ -326,9 +324,12 @@ int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
             return STL_String_memory_error;
         }
     }
+
+    if (pos != self->nchar) {
+        memmove(self->data + pos + len,
+                self->data + pos, strlen(self->data + pos));
+    }
     self->nchar = newSize;
-    memmove(self->data + pos + len,
-            self->data + pos, strlen(self->data + pos));
     memcpy(self->data + pos, str, len);
 
     /* Returning value */
@@ -418,7 +419,7 @@ void STL_String_replace(STL_String *self, size_t pos, const char *str, size_t co
     auto int toReplace = min(count, self->nchar - pos);
 
     /* Main part */
-    for (i = 0; i < count; ++i) {
+    for (i = 0; i < toReplace; ++i) {
         *((char *) self->nchar + pos + i) = *(str + i);
     }
 }
