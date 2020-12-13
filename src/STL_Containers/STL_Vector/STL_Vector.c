@@ -275,7 +275,7 @@ void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {
     }
 
     /* Main part */
-    if (++self->nelem >= self->max_nelem) {
+    if (++self->nelem >= self->max_nelem - 1) {
         if (STL_Vector_reallocate(self, self->nbytes * self->max_nelem * 2) != STL_Vector_OK) {
             return NULL;
         }

@@ -13,9 +13,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66bc742f-23ee-4b6b-ba7e-841fe208b351" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../configure.ac" beforeDir="false" afterPath="$PROJECT_DIR$/../configure.ac" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile.am" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile.am" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STL_Containers/STL_String/STL_String.c" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Containers/STL_String/STL_String.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Algorithm.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Algorithm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Forward_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Forward_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_List.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_List.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Queue.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Queue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Stack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_String.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_String.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Unordered_map.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Unordered_map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL/STL_Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/STL_Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STL_Headers/STL_Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/STL_Headers/STL/__internal/__STL_Config.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +45,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-Debug-STL" />
-  </component>
   <component name="ProjectId" id="1iokSJ5lDrhVY8g1CnDUfDEG6Oo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/C/lab/lab_dev" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -51,30 +64,30 @@
       <recent name="$PROJECT_DIR$/STL_Headers/STL/__internal" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.main">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.STL">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="STL" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="STL" CONFIG_NAME="Debug">
+    <configuration name="STL" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="STL" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="src" RUN_TARGET_NAME="main">
+    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="src" RUN_TARGET_NAME="main">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.STL" />
       <item itemvalue="CMake Application.main" />
+      <item itemvalue="CMake Application.STL" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -87,13 +100,6 @@
       <updated>1602581330640</updated>
       <workItem from="1602581331858" duration="690000" />
       <workItem from="1602591832366" duration="783000" />
-      <workItem from="1603482795547" duration="787000" />
-      <workItem from="1603722871426" duration="51000" />
-      <workItem from="1605980773182" duration="631000" />
-      <workItem from="1606054597399" duration="598000" />
-      <workItem from="1606083587846" duration="1433000" />
-      <workItem from="1606461333189" duration="14000" />
-      <workItem from="1607890102690" duration="2804000" />
     </task>
     <servers />
   </component>
@@ -101,45 +107,21 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2338" y="195" width="1084" height="712" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603483456988">
+    <state width="1872" height="264" key="GridCell.Tab.0.bottom" timestamp="1602585724695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2338" y="195" width="1084" height="712" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603483456988" />
-    <state x="2663" y="309" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603722921150">
+    <state width="1872" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1602585724695" />
+    <state width="1872" height="264" key="GridCell.Tab.0.center" timestamp="1602585724695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2663" y="309" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603722921150" />
-    <state width="1872" height="264" key="GridCell.Tab.0.bottom" timestamp="1606085417767">
+    <state width="1872" height="264" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1602585724695" />
+    <state width="1872" height="264" key="GridCell.Tab.0.left" timestamp="1602585724695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1606085417767" />
-    <state width="1872" height="264" key="GridCell.Tab.0.center" timestamp="1606085417767">
+    <state width="1872" height="264" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1602585724695" />
+    <state width="1872" height="264" key="GridCell.Tab.0.right" timestamp="1602585724695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="264" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1606085417767" />
-    <state width="1872" height="264" key="GridCell.Tab.0.left" timestamp="1606085417767">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="264" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1606085417767" />
-    <state width="1872" height="264" key="GridCell.Tab.0.right" timestamp="1606085417767">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="264" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1606085417767" />
-    <state width="1872" height="326" key="GridCell.Tab.1.bottom" timestamp="1603483582063">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="326" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603483582063" />
-    <state width="1872" height="326" key="GridCell.Tab.1.center" timestamp="1603483582063">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="326" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603483582063" />
-    <state width="1872" height="326" key="GridCell.Tab.1.left" timestamp="1603483582063">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="326" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603483582063" />
-    <state width="1872" height="326" key="GridCell.Tab.1.right" timestamp="1603483582063">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="326" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1603483582063" />
+    <state width="1872" height="264" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1020@1920.0.1920.1080" timestamp="1602585724695" />
   </component>
 </project>
