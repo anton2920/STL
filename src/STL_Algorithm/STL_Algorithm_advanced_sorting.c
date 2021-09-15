@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of STL.
 
@@ -20,17 +20,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
-#if (HAVE_STRING_H == 1)
-    #include <string.h>
-#endif
-
-#if (HAVE_LIMITS_H == 1)
-    #include <limits.h>
-#endif
-
-#if (HAVE_STDLIB_H == 1)
+#include <string.h>
+#include <limits.h>
 #include <stdlib.h>
-#endif
 
 /* Miscellaneous routines */
 static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (*cmp)(const void *, const void *)) {

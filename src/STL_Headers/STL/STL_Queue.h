@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of STL.
 
@@ -21,13 +21,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #ifndef SRC_STL_QUEUE_H
 #define SRC_STL_QUEUE_H
 
-/* Include autoconf config.h */
-#include "__internal/__STL_Config.h"
-
-/* Header inclusion */
-#if (HAVE_STDDEF_H == 1)
-    #include <stddef.h>
-#endif
+#include <stddef.h>
 
 /* Include STL_List type definition */
 #include "__internal/__STL_List_type.h"

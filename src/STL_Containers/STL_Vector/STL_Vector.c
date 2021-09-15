@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of STL.
 
@@ -20,13 +20,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../../STL_Headers/STL/STL_Vector.h"
 
-#if (HAVE_STDLIB_H == 1)
-    #include <stdlib.h>
-#endif
-
-#if (HAVE_STRING_H == 1)
-    #include <string.h>
-#endif
+#include <stdlib.h>
+#include <string.h>
 
 static const size_t thresh = 16;
 

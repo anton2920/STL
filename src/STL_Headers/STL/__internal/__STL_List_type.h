@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of STL.
 

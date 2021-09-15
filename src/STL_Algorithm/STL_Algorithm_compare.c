@@ -1,6 +1,6 @@
 /*
 Sorting library — free shared library, that contains a few general-purpose sorting algorithms
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of Sorting library.
 
@@ -20,9 +20,8 @@ along with Sorting library. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
-#if (HAVE_STDLIB_H == 1)
-    #include <stdlib.h>
-#endif
+#include <stdlib.h>
+
 
 /* Basic functions for compare */
 int STL_numcmp(const void *num1, const void *num2) {

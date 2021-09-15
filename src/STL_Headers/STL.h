@@ -1,6 +1,6 @@
 /*
 Standard Template Library for C — free shared library, that contains an attempt of recreation of libc++ STL
-Copyright © Pavlovsky Anton, 2019-2020
+Copyright © Pavlovsky Anton, 2019-2021
 
 This file is part of STL.
 
@@ -32,7 +32,6 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 /* Container adaptors provide a different interface for sequential containers */
 #include "STL/STL_Stack.h" /* adapts a container to provide stack (LIFO data structure) */
 #include "STL/STL_Queue.h" /* adapts a container to provide queue (FIFO data structure) */
-
 
 /* Random-access containers */
 #include "STL/STL_Vector.h" /* wrap for dynamic array */
