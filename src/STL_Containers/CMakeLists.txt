@@ -5,14 +5,3 @@ add_subdirectory(STL_Stack)
 add_subdirectory(STL_String)
 add_subdirectory(STL_Unordered_map)
 add_subdirectory(STL_Vector)
-
-add_library(STL_Containers INTERFACE)
-target_link_libraries(STL_Containers INTERFACE STL_Forward_list)
-target_link_libraries(STL_Containers INTERFACE STL_List)
-target_link_libraries(STL_Containers INTERFACE STL_Queue)
-target_link_libraries(STL_Containers INTERFACE STL_Stack)
-target_link_libraries(STL_Containers INTERFACE STL_String)
-target_link_libraries(STL_Containers INTERFACE STL_Vector)
-
-# TODO
-# target_link_libraries(STL_Containers INTERFACE STL_Unordered_map)

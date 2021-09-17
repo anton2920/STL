@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "../src/STL_Headers/STL/STL_Stack.h"
 
@@ -8,7 +7,6 @@ main() {
     /* Initializing variables */
     STL_Stack a;
     STL_Stack_init(&a);
-    int *iter;
     int i;
 
     /* Main part */
