@@ -25,7 +25,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include <string.h>
 
 
-static STL_Unordered_map_key_t default_hash_f(void *elem, size_t total_elem) {
+static STL_Unordered_map_key_t default_hash_f(void *elem, size_t total_elem)
+{
 
     /* Initializing variables */
     auto char *str = (char *) elem;
@@ -41,7 +42,8 @@ static STL_Unordered_map_key_t default_hash_f(void *elem, size_t total_elem) {
     return hash % total_elem;
 }
 
-int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size, STL_Unordered_map_hash_function_t func) {
+int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size, STL_Unordered_map_hash_function_t func)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -49,7 +51,8 @@ int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size, STL_Unorde
     }
 
     /* Main part */
-    if ((self->buckets = (STL_Unordered_map_bucket_t *) calloc(DEFAULT_NBUCKET + 1, sizeof(STL_Unordered_map_bucket_t))) == NULL) {
+    if ((self->buckets = (STL_Unordered_map_bucket_t *) calloc(DEFAULT_NBUCKET + 1,
+                                                               sizeof(STL_Unordered_map_bucket_t))) == NULL) {
         return STL_Unordered_map_memory_error;
     }
 
@@ -63,7 +66,8 @@ int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size, STL_Unorde
     return STL_Unordered_map_OK;
 }
 
-int STL_Unordered_map_init_cpy(STL_Unordered_map *self, STL_Unordered_map *other) {
+int STL_Unordered_map_init_cpy(STL_Unordered_map *self, STL_Unordered_map *other)
+{
 
     /* Initializing variables */
     auto size_t i;
@@ -84,7 +88,8 @@ int STL_Unordered_map_init_cpy(STL_Unordered_map *self, STL_Unordered_map *other
     return STL_Unordered_map_OK;
 }
 
-void STL_Unordered_map_delete(STL_Unordered_map *self) {
+void STL_Unordered_map_delete(STL_Unordered_map *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -97,7 +102,8 @@ void STL_Unordered_map_delete(STL_Unordered_map *self) {
     free(self->buckets);
 }
 
-void *STL_Unordered_map_begin(STL_Unordered_map *self) {
+void *STL_Unordered_map_begin(STL_Unordered_map *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -108,7 +114,8 @@ void *STL_Unordered_map_begin(STL_Unordered_map *self) {
     return *(self->buckets);
 }
 
-void *STL_Unordered_map_end(STL_Unordered_map *self) {
+void *STL_Unordered_map_end(STL_Unordered_map *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -119,7 +126,8 @@ void *STL_Unordered_map_end(STL_Unordered_map *self) {
     return self->buckets + (self->nbuckets + 1) * self->size;
 }
 
-int STL_Unordered_map_empty(STL_Unordered_map *self) {
+int STL_Unordered_map_empty(STL_Unordered_map *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -130,7 +138,8 @@ int STL_Unordered_map_empty(STL_Unordered_map *self) {
     return (self->size > 0) ? unordered_map_not_empty : unordered_map_is_empty;
 }
 
-size_t STL_Unordered_map_size(STL_Unordered_map *self) {
+size_t STL_Unordered_map_size(STL_Unordered_map *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -141,74 +150,92 @@ size_t STL_Unordered_map_size(STL_Unordered_map *self) {
     return self->nelem;
 }
 
-void STL_Unordered_map_clear(STL_Unordered_map *self) {
+void STL_Unordered_map_clear(STL_Unordered_map *self)
+{
 
 }
 
-int STL_Unordered_map_insert(STL_Unordered_map *self, const void *elem) {
+int STL_Unordered_map_insert(STL_Unordered_map *self, const void *elem)
+{
 
 }
 
-int STL_Unordered_map_insert_or_assign(STL_Unordered_map *self, const void *elem) {
+int STL_Unordered_map_insert_or_assign(STL_Unordered_map *self, const void *elem)
+{
 
 }
 
-void STL_Unordered_map_erase(STL_Unordered_map *self, void *pos) {
+void STL_Unordered_map_erase(STL_Unordered_map *self, void *pos)
+{
 
 }
 
-void STL_Unordered_map_swap(STL_Unordered_map *self, STL_Unordered_map *other) {
+void STL_Unordered_map_swap(STL_Unordered_map *self, STL_Unordered_map *other)
+{
 
 }
 
-void *STL_Unordered_map_at(STL_Unordered_map *self, size_t pos) {
+void *STL_Unordered_map_at(STL_Unordered_map *self, size_t pos)
+{
 
 }
 
-size_t STL_Unordered_map_count(STL_Unordered_map *self, STL_Unordered_map_key_t key) {
+size_t STL_Unordered_map_count(STL_Unordered_map *self, STL_Unordered_map_key_t key)
+{
 
 }
 
-void *STL_Unordered_map_find(STL_Unordered_map *self, STL_Unordered_map_key_t key) {
+void *STL_Unordered_map_find(STL_Unordered_map *self, STL_Unordered_map_key_t key)
+{
 
 }
 
-void *STL_Unordered_map_bucket_begin(STL_Unordered_map *self, size_t n) {
+void *STL_Unordered_map_bucket_begin(STL_Unordered_map *self, size_t n)
+{
 
 }
 
-void *STL_Unordered_map_bucket_end(STL_Unordered_map *self, size_t n) {
+void *STL_Unordered_map_bucket_end(STL_Unordered_map *self, size_t n)
+{
 
 }
 
-size_t STL_Unordered_map_bucket_count(STL_Unordered_map *self) {
+size_t STL_Unordered_map_bucket_count(STL_Unordered_map *self)
+{
 
 }
 
-size_t STL_Unordered_map_bucket_size(STL_Unordered_map *self, size_t n) {
+size_t STL_Unordered_map_bucket_size(STL_Unordered_map *self, size_t n)
+{
 
 }
 
-void *STL_Unordered_map_bucket(STL_Unordered_map *self, STL_Unordered_map_key_t key) {
+void *STL_Unordered_map_bucket(STL_Unordered_map *self, STL_Unordered_map_key_t key)
+{
 
 }
 
-float STL_Unordered_map_load_factor(STL_Unordered_map *self) {
+float STL_Unordered_map_load_factor(STL_Unordered_map *self)
+{
 
 }
 
-float STL_Unordered_map_max_load_factor(STL_Unordered_map *self) {
+float STL_Unordered_map_max_load_factor(STL_Unordered_map *self)
+{
 
 }
 
-void STL_Unordered_map_rehash(STL_Unordered_map *self, size_t count) {
+void STL_Unordered_map_rehash(STL_Unordered_map *self, size_t count)
+{
 
 }
 
-void STL_Unordered_map_reserve(STL_Unordered_map *self, size_t count) {
+void STL_Unordered_map_reserve(STL_Unordered_map *self, size_t count)
+{
 
 }
 
-STL_Unordered_map_hash_function_t STL_Unordered_map_hash_function(STL_Unordered_map *self) {
+STL_Unordered_map_hash_function_t STL_Unordered_map_hash_function(STL_Unordered_map *self)
+{
 
 }

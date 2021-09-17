@@ -21,61 +21,71 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include "../../STL_Headers/STL/STL_Queue.h"
 #include "../../STL_Headers/STL/STL_List.h"
 
-int STL_Queue_init(STL_Queue *self) {
+int STL_Queue_init(STL_Queue *self)
+{
 
     /* Returning value */
     return STL_List_init((STL_List *) self);
 }
 
-int STL_Queue_init_cpy(STL_Queue *self, STL_Queue *other) {
+int STL_Queue_init_cpy(STL_Queue *self, STL_Queue *other)
+{
 
     /* Returning value */
     return STL_List_init_cpy((STL_List *) self, (STL_List *) other);
 }
 
-void STL_Queue_delete(STL_Queue *self) {
+void STL_Queue_delete(STL_Queue *self)
+{
 
     /* Main part */
     STL_List_delete((STL_List *) self);
 }
 
-void *STL_Queue_front(const STL_Queue *queue) {
+void *STL_Queue_front(const STL_Queue *queue)
+{
 
     /* Returning value */
     return STL_List_back((STL_List *) queue);
 }
 
-void *STL_Queue_back(const STL_Queue *queue) {
+void *STL_Queue_back(const STL_Queue *queue)
+{
 
     /* Returning value */
     return STL_List_front((STL_List *) queue);
 }
 
-int STL_Queue_empty(const STL_Queue *queue) {
+int STL_Queue_empty(const STL_Queue *queue)
+{
 
     /* Returning value */
     return STL_List_empty((STL_List *) queue);
 }
 
-size_t STL_Queue_size(const STL_Queue *queue) {
+size_t STL_Queue_size(const STL_Queue *queue)
+{
 
     /* Returning value */
     return STL_List_size((STL_List *) queue);
 }
 
-int STL_Queue_push(STL_Queue *self, const void *elem, size_t nbytes) {
+int STL_Queue_push(STL_Queue *self, const void *elem, size_t nbytes)
+{
 
     /* Returning value */
     return STL_List_push_front((STL_List *) self, elem, nbytes);
 }
 
-void STL_Queue_pop(STL_Queue *self) {
+void STL_Queue_pop(STL_Queue *self)
+{
 
     /* Main part */
     STL_List_pop_back((STL_List *) self);
 }
 
-void STL_Queue_swap(STL_Queue *self, STL_Queue *other) {
+void STL_Queue_swap(STL_Queue *self, STL_Queue *other)
+{
 
     /* Main part */
     STL_List_swap((STL_List *) self, (STL_List *) other);

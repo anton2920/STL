@@ -59,7 +59,8 @@ int STL_Queue_empty(const STL_Queue *queue); /* Returns STL_List_states::list_is
 size_t STL_Queue_size(const STL_Queue *queue); /* Returns STL_Queue->size */
 
 /* Modifiers */
-int STL_Queue_push(STL_Queue *queue, const void *elem, size_t nbytes); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_Queue_OK if OK */
+int STL_Queue_push(STL_Queue *queue, const void *elem,
+                   size_t nbytes); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_Queue_OK if OK */
 void STL_Queue_pop(STL_Queue *queue); /* Removes element at the last position */
 
 void STL_Queue_swap(STL_Queue *self, STL_Queue *other); /* Swaps the contents of two STL_Queues */

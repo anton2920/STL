@@ -58,7 +58,8 @@ int STL_Stack_empty(const STL_Stack *stack); /* Returns STL_List_states::list_is
 size_t STL_Stack_size(const STL_Stack *stack); /* Returns STL_Stack->size */
 
 /* Modifiers */
-int STL_Stack_push(STL_Stack *stack, const void *elem, size_t nbytes); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_Stack_OK if OK */
+int STL_Stack_push(STL_Stack *stack, const void *elem,
+                   size_t nbytes); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_Stack_OK if OK */
 void STL_Stack_pop(STL_Stack *stack); /* Removes element at the last position */
 
 void STL_Stack_swap(STL_Stack *self, STL_Stack *other); /* Swaps the contents of two STL_Stacks */

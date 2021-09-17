@@ -30,7 +30,7 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include "__internal/__STL_Unordered_multimap.h"
 
 /* Definition of STL_Unordered_map type */
-typedef void * STL_Unordered_map_bucket_t;
+typedef void *STL_Unordered_map_bucket_t;
 typedef size_t STL_Unordered_map_key_t;
 typedef STL_Unordered_map_key_t (*STL_Unordered_map_hash_function_t)(void *elem, size_t total_elem);
 
@@ -69,8 +69,10 @@ enum STL_Unordered_map_states {
 
 /* STL_Unordered_map methods */
 /* Construction and destruction */
-int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size, STL_Unordered_map_hash_function_t func); /* Constructs the unordered_map. Returns STL_Unordered_map_OK if OK */
-int STL_Unordered_map_init_cpy(STL_Unordered_map *self, STL_Unordered_map *other); /* Copies the unordered_map. Returns STL_Unordered_map_OK if OK */
+int STL_Unordered_map_init(STL_Unordered_map *self, size_t elem_size,
+                           STL_Unordered_map_hash_function_t func); /* Constructs the unordered_map. Returns STL_Unordered_map_OK if OK */
+int STL_Unordered_map_init_cpy(STL_Unordered_map *self,
+                               STL_Unordered_map *other); /* Copies the unordered_map. Returns STL_Unordered_map_OK if OK */
 void STL_Unordered_map_delete(STL_Unordered_map *self); /* Destructs the unordered_map */
 
 /* Iterators */
@@ -85,7 +87,8 @@ size_t STL_Unordered_map_size(STL_Unordered_map *self); /* Returns the number of
 void STL_Unordered_map_clear(STL_Unordered_map *self); /* Clears the contents */
 
 int STL_Unordered_map_insert(STL_Unordered_map *self, const void *elem); /* Inserts an element */
-int STL_Unordered_map_insert_or_assign(STL_Unordered_map *self, const void *elem); /* Inserts an element or assigns to the current element if the key already exists */
+int STL_Unordered_map_insert_or_assign(STL_Unordered_map *self,
+                                       const void *elem); /* Inserts an element or assigns to the current element if the key already exists */
 
 void STL_Unordered_map_erase(STL_Unordered_map *self, void *pos); /* Erases an element at "pos" */
 
@@ -97,13 +100,17 @@ size_t STL_Unordered_map_count(STL_Unordered_map *self, STL_Unordered_map_key_t 
 void *STL_Unordered_map_find(STL_Unordered_map *self, STL_Unordered_map_key_t key); /* Finds element with specific key */
 
 /* Bucket interface */
-void *STL_Unordered_map_bucket_begin(STL_Unordered_map *self, size_t n); /* Return an iterator to the beginning of the specific bucket */
-void *STL_Unordered_map_bucket_end(STL_Unordered_map *self, size_t n); /* Returns an iterator to the end of the specific bucket */
+void *STL_Unordered_map_bucket_begin(STL_Unordered_map *self,
+                                     size_t n); /* Return an iterator to the beginning of the specific bucket */
+void *STL_Unordered_map_bucket_end(STL_Unordered_map *self,
+                                   size_t n); /* Returns an iterator to the end of the specific bucket */
 
 size_t STL_Unordered_map_bucket_count(STL_Unordered_map *self); /* Returns the number of buckets */
-size_t STL_Unordered_map_bucket_size(STL_Unordered_map *self, size_t n); /* Returns the number of elements in specific bucket */
+size_t STL_Unordered_map_bucket_size(STL_Unordered_map *self,
+                                     size_t n); /* Returns the number of elements in specific bucket */
 
-void *STL_Unordered_map_bucket(STL_Unordered_map *self, STL_Unordered_map_key_t key); /* Returns the bucket for specific key */
+void *STL_Unordered_map_bucket(STL_Unordered_map *self,
+                               STL_Unordered_map_key_t key); /* Returns the bucket for specific key */
 
 /* Hash policy */
 float STL_Unordered_map_load_factor(STL_Unordered_map *self); /* Returns average number of elements per bucket */

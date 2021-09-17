@@ -21,7 +21,9 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include "../STL_Headers/STL/STL_Algorithm.h"
 
 /* Miscellaneous routines */
-void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes,
+                        int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     auto const char *p = (char *) pbase, *pivot = NULL;

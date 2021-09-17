@@ -61,20 +61,29 @@ size_t STL_List_size(STL_List *list); /* Returns the number of elements */
 /* Modifiers */
 void STL_List_clear(STL_List *list); /* Clears the contents */
 
-int STL_List_insert_at(STL_List *list, const void *elem, size_t size, size_t pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
-int STL_List_insert(STL_List *list, const void *elem, size_t size, STL_List_node *pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
-STL_List_node *STL_List_erase_at(STL_List *list, size_t pos); /* Removes element before "pos". Returns node after deleted element if OK */
-STL_List_node *STL_List_erase(STL_List *list, STL_List_node *pos); /* Removes element at "pos". Returns node after deleted element if OK */
+int STL_List_insert_at(STL_List *list, const void *elem, size_t size,
+                       size_t pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
+int STL_List_insert(STL_List *list, const void *elem, size_t size,
+                    STL_List_node *pos); /* Inserts element of size "size" at address "elem" before "pos". Returns STL_List_OK if OK */
+STL_List_node *STL_List_erase_at(STL_List *list,
+                                 size_t pos); /* Removes element before "pos". Returns node after deleted element if OK */
+STL_List_node *STL_List_erase(STL_List *list,
+                              STL_List_node *pos); /* Removes element at "pos". Returns node after deleted element if OK */
 
-int STL_List_push_back(STL_List *list, const void *elem, size_t size); /* Inserts element of size "size" at address "elem" at the last position. Returns STL_List_OK if OK */
-STL_List_node *STL_List_pop_back(STL_List *list); /* Removes element at the last position. Returns node after deleted element if OK */
-int STL_List_push_front(STL_List *list, const void *elem, size_t size); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_List_OK if OK */
-STL_List_node *STL_List_pop_front(STL_List *list); /* Removes element at the first position. Returns node after deleted element if OK */
+int STL_List_push_back(STL_List *list, const void *elem,
+                       size_t size); /* Inserts element of size "size" at address "elem" at the last position. Returns STL_List_OK if OK */
+STL_List_node *
+STL_List_pop_back(STL_List *list); /* Removes element at the last position. Returns node after deleted element if OK */
+int STL_List_push_front(STL_List *list, const void *elem,
+                        size_t size); /* Inserts element of size "size" at address "elem" at the first position. Returns STL_List_OK if OK */
+STL_List_node *STL_List_pop_front(
+    STL_List *list); /* Removes element at the first position. Returns node after deleted element if OK */
 
 void STL_List_swap(STL_List *self, STL_List *other); /* Swaps the contents of two STL_Lists */
 
 /* Operations */
-void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *, const void *)); /* Merges two sorted lists into one. The lists should be sorted into ascending order */
+void STL_List_merge(STL_List *self, STL_List *other, int (*cmp)(const void *,
+                                                                const void *)); /* Merges two sorted lists into one. The lists should be sorted into ascending order */
 void STL_List_reverse(STL_List *self); /* Reverses the order of elements */
 void STL_List_sort(STL_List *list, size_t n, int (*cmp)(const void *, const void *)); /* Sorts the list */
 

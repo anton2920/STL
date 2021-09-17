@@ -24,7 +24,8 @@ along with Sorting library. If not, see <https://www.gnu.org/licenses/>.
 
 
 /* Basic functions for compare */
-int STL_numcmp(const void *num1, const void *num2) {
+int STL_numcmp(const void *num1, const void *num2)
+{
 
     /* Compares two strings numerically */
 
@@ -35,7 +36,8 @@ int STL_numcmp(const void *num1, const void *num2) {
     return (d1 > d2) ? GREATER : (d1 < d2) ? LESS : EQUALS;
 }
 
-int STL_inumcmp(const void *num1, const void *num2) {
+int STL_inumcmp(const void *num1, const void *num2)
+{
 
     /* Compares integers */
 
@@ -46,7 +48,8 @@ int STL_inumcmp(const void *num1, const void *num2) {
     return (d1 > d2) ? GREATER : (d1 < d2) ? LESS : EQUALS;
 }
 
-int STL_dnumcmp(const void *num1, const void *num2) {
+int STL_dnumcmp(const void *num1, const void *num2)
+{
 
     /* Compares doubles */
 

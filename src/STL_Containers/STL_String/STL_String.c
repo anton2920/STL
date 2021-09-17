@@ -35,7 +35,8 @@ enum yn {
     YES
 };
 
-static int STL_String_allocate_size(STL_String *self, size_t nchar, enum yn prev) {
+static int STL_String_allocate_size(STL_String *self, size_t nchar, enum yn prev)
+{
 
     /* Main part */
     if (prev == YES) {
@@ -50,7 +51,8 @@ static int STL_String_allocate_size(STL_String *self, size_t nchar, enum yn prev
     return STL_String_OK;
 }
 
-static int STL_String_reallocate(STL_String *self, size_t new_size) {
+static int STL_String_reallocate(STL_String *self, size_t new_size)
+{
 
     /* Initializing variables */
     auto void *tmp = malloc(self->nchar * self->charWidth);
@@ -76,7 +78,8 @@ static int STL_String_reallocate(STL_String *self, size_t new_size) {
     return STL_String_OK;
 }
 
-int STL_String_init(STL_String *self) {
+int STL_String_init(STL_String *self)
+{
 
     /* Initializing variables */
     if (STL_String_allocate_size(self, thresh, NO) != STL_String_OK) {
@@ -91,7 +94,8 @@ int STL_String_init(STL_String *self) {
     return STL_String_OK;
 }
 
-int STL_String_init_cpy(STL_String *self, STL_String *other) {
+int STL_String_init_cpy(STL_String *self, STL_String *other)
+{
 
     /* Main part */
     if (self == NULL || other == NULL) {
@@ -111,7 +115,8 @@ int STL_String_init_cpy(STL_String *self, STL_String *other) {
     return STL_String_OK;
 }
 
-void STL_String_delete(STL_String *self) {
+void STL_String_delete(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -122,7 +127,8 @@ void STL_String_delete(STL_String *self) {
     free(self->data);
 }
 
-char *STL_String_at(STL_String *self, size_t n) {
+char *STL_String_at(STL_String *self, size_t n)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -137,19 +143,22 @@ char *STL_String_at(STL_String *self, size_t n) {
     return (char *) (self->data + n);
 }
 
-char *STL_String_front(STL_String *self) {
+char *STL_String_front(STL_String *self)
+{
 
     /* Returning value */
     return STL_String_at(self, 0);
 }
 
-char *STL_String_back(STL_String *self) {
+char *STL_String_back(STL_String *self)
+{
 
     /* Returning value */
     return STL_String_at(self, self->nchar - 1);
 }
 
-char *STL_String_data(STL_String *self) {
+char *STL_String_data(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -160,13 +169,15 @@ char *STL_String_data(STL_String *self) {
     return (char *) self->data;
 }
 
-const char *STL_String_c_str(STL_String *self) {
+const char *STL_String_c_str(STL_String *self)
+{
 
     /* Returning value */
     return (const char *) STL_String_data(self);
 }
 
-char *STL_String_begin(STL_String *self) {
+char *STL_String_begin(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -177,7 +188,8 @@ char *STL_String_begin(STL_String *self) {
     return (char *) self->data;
 }
 
-char *STL_String_end(STL_String *self) {
+char *STL_String_end(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -188,7 +200,8 @@ char *STL_String_end(STL_String *self) {
     return (char *) (self->data + self->nchar * self->charWidth);
 }
 
-int STL_String_empty(STL_String *self) {
+int STL_String_empty(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -199,7 +212,8 @@ int STL_String_empty(STL_String *self) {
     return (!self->nchar) ? string_is_empty : string_not_empty;
 }
 
-size_t STL_String_size(STL_String *self) {
+size_t STL_String_size(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -210,13 +224,15 @@ size_t STL_String_size(STL_String *self) {
     return self->nchar;
 }
 
-size_t STL_String_length(STL_String *self) {
+size_t STL_String_length(STL_String *self)
+{
 
     /* Returning value */
     return STL_String_size(self);
 }
 
-int STL_String_reserve(STL_String *self, size_t new_cap) {
+int STL_String_reserve(STL_String *self, size_t new_cap)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -232,7 +248,8 @@ int STL_String_reserve(STL_String *self, size_t new_cap) {
     return STL_String_reallocate(self, new_cap * self->charWidth);
 }
 
-size_t STL_String_capacity(STL_String *self) {
+size_t STL_String_capacity(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -243,7 +260,8 @@ size_t STL_String_capacity(STL_String *self) {
     return self->max_nchar;
 }
 
-int STL_String_shrink_to_fit(STL_String *self) {
+int STL_String_shrink_to_fit(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -254,7 +272,8 @@ int STL_String_shrink_to_fit(STL_String *self) {
     return STL_String_reallocate(self, self->charWidth * self->nchar);
 }
 
-void STL_String_clear(STL_String *self) {
+void STL_String_clear(STL_String *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -265,7 +284,8 @@ void STL_String_clear(STL_String *self) {
     self->nchar = 0;
 }
 
-int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count) {
+int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -299,7 +319,8 @@ int STL_String_insert(STL_String *self, size_t pos, char ch, size_t count) {
     return STL_String_OK;
 }
 
-int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
+int STL_String_insert_str(STL_String *self, size_t pos, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -332,7 +353,9 @@ int STL_String_insert_str(STL_String *self, size_t pos, const char *str) {
     /* Returning value */
     return STL_String_OK;
 }
-void STL_String_erase(STL_String *self, size_t pos, size_t count) {
+
+void STL_String_erase(STL_String *self, size_t pos, size_t count)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -352,37 +375,43 @@ void STL_String_erase(STL_String *self, size_t pos, size_t count) {
     memmove(self->data + pos, self->data + pos + toRemove, strlen(self->data + pos + toRemove) + 1);
 }
 
-void STL_String_push_back(STL_String *self, char ch) {
+void STL_String_push_back(STL_String *self, char ch)
+{
 
     /* Main part */
     STL_String_insert(self, self->nchar, ch, 1lu);
 }
 
-void STL_String_pop_back(STL_String *self) {
+void STL_String_pop_back(STL_String *self)
+{
 
     /* Main part */
     STL_String_erase(self, self->nchar, 1lu);
 }
 
-void STL_String_append(STL_String *self, char ch, size_t count) {
+void STL_String_append(STL_String *self, char ch, size_t count)
+{
 
     /* Main part */
     STL_String_insert(self, self->nchar, ch, count);
 }
 
-void STL_String_append_str(STL_String *self, const char *str) {
+void STL_String_append_str(STL_String *self, const char *str)
+{
 
     /* Main part */
     STL_String_insert_str(self, self->nchar, str);
 }
 
-int STL_String_compare(STL_String *self, STL_String *other) {
+int STL_String_compare(STL_String *self, STL_String *other)
+{
 
     /* Returning value */
     return strcmp(self->data, other->data);
 }
 
-int STL_String_starts_with(STL_String *self, const char *prefix) {
+int STL_String_starts_with(STL_String *self, const char *prefix)
+{
 
     /* VarCheck */
     if (self == NULL || prefix == NULL) {
@@ -393,7 +422,8 @@ int STL_String_starts_with(STL_String *self, const char *prefix) {
     return strstr(self->data, prefix) == self->data;
 }
 
-int STL_String_ends_with(STL_String *self, const char *prefix) {
+int STL_String_ends_with(STL_String *self, const char *prefix)
+{
 
     /* VarCheck */
     if (self == NULL || prefix == NULL) {
@@ -404,7 +434,8 @@ int STL_String_ends_with(STL_String *self, const char *prefix) {
     return strlen(strstr(self->data, prefix)) == strlen(self->data);
 }
 
-void STL_String_replace(STL_String *self, size_t pos, const char *str, size_t count) {
+void STL_String_replace(STL_String *self, size_t pos, const char *str, size_t count)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -421,7 +452,8 @@ void STL_String_replace(STL_String *self, size_t pos, const char *str, size_t co
     }
 }
 
-STL_String STL_String_substr(STL_String *self, size_t pos, size_t count) {
+STL_String STL_String_substr(STL_String *self, size_t pos, size_t count)
+{
 
     /* Initializing variables */
     STL_String str;
@@ -445,7 +477,8 @@ STL_String STL_String_substr(STL_String *self, size_t pos, size_t count) {
     return str;
 }
 
-size_t STL_String_copy(STL_String *self, char *dest, size_t count, size_t pos) {
+size_t STL_String_copy(STL_String *self, char *dest, size_t count, size_t pos)
+{
 
     /* VarCheck */
     if (self == NULL || dest == NULL) {
@@ -467,7 +500,8 @@ size_t STL_String_copy(STL_String *self, char *dest, size_t count, size_t pos) {
     return toCopy;
 }
 
-int STL_String_resize(STL_String *self, size_t count) {
+int STL_String_resize(STL_String *self, size_t count)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -483,7 +517,8 @@ int STL_String_resize(STL_String *self, size_t count) {
     return STL_String_OK;
 }
 
-void STL_String_swap(STL_String *self, STL_String *other) {
+void STL_String_swap(STL_String *self, STL_String *other)
+{
 
     auto STL_String tmp;
 
@@ -509,7 +544,8 @@ void STL_String_swap(STL_String *self, STL_String *other) {
     self->max_nchar = tmp.max_nchar;
 }
 
-size_t STL_String_find(STL_String *self, const char *str) {
+size_t STL_String_find(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -523,7 +559,8 @@ size_t STL_String_find(STL_String *self, const char *str) {
     return (substr == NULL) ? npos : (substr - (char *) self->data);
 }
 
-size_t STL_String_rfind(STL_String *self, const char *str) {
+size_t STL_String_rfind(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -542,7 +579,8 @@ size_t STL_String_rfind(STL_String *self, const char *str) {
     return (substr == NULL) ? npos : (substr - (char *) self->data);
 }
 
-size_t STL_String_find_first_of(STL_String *self, const char *str) {
+size_t STL_String_find_first_of(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -566,7 +604,8 @@ size_t STL_String_find_first_of(STL_String *self, const char *str) {
     return npos;
 }
 
-size_t STL_String_find_first_not_of(STL_String *self, const char *str) {
+size_t STL_String_find_first_not_of(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -595,7 +634,8 @@ size_t STL_String_find_first_not_of(STL_String *self, const char *str) {
     return npos;
 }
 
-size_t STL_String_find_last_of(STL_String *self, const char *str) {
+size_t STL_String_find_last_of(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -619,7 +659,8 @@ size_t STL_String_find_last_of(STL_String *self, const char *str) {
     return npos;
 }
 
-size_t STL_String_find_last_not_of(STL_String *self, const char *str) {
+size_t STL_String_find_last_not_of(STL_String *self, const char *str)
+{
 
     /* VarCheck */
     if (self == NULL || str == NULL) {
@@ -648,7 +689,8 @@ size_t STL_String_find_last_not_of(STL_String *self, const char *str) {
     return npos;
 }
 
-size_t STL_String_npos() {
+size_t STL_String_npos()
+{
 
     /* Returning value */
     return npos;

@@ -25,17 +25,17 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 /* Macros */
 #ifndef GREATER
-    #define GREATER (1)
+#define GREATER (1)
 #endif
 #ifndef LESS
-    #define LESS (-1)
+#define LESS (-1)
 #endif
 #ifndef EQUALS
-    #define EQUALS (0)
+#define EQUALS (0)
 #endif
 
 #ifndef SWAP
-    #define SWAP(a, b, size)                \
+#define SWAP(a, b, size)                    \
         do {                                \
             int __size = (size);            \
             char *__a = (a), *__b = (b);    \
@@ -53,11 +53,11 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 /* Types */
 #ifndef __BOOL_TYPE
-    #define __BOOL_TYPE
-    typedef enum {
-        __false = 0,
-        __true = 1
-    } __bool;
+#define __BOOL_TYPE
+typedef enum {
+    __false = 0,
+    __true = 1
+} __bool;
 #endif
 
 /* Basic functions for compare */
@@ -66,7 +66,8 @@ int STL_inumcmp(const void *, const void *); /* Compares integers */
 int STL_dnumcmp(const void *, const void *); /* Compares doubles */
 
 /* Miscellaneous routines */
-void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *));
+void *STL_binary_search(const void *key, const void *pbase, size_t n, size_t nbytes,
+                        int (*cmp)(const void *, const void *));
 
 /* Basic sorting algorithms */
 void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *));

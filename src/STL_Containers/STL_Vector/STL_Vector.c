@@ -30,7 +30,8 @@ enum yn {
     YES
 };
 
-static int STL_Vector_allocate_size(STL_Vector *self, size_t nbytes, enum yn prev) {
+static int STL_Vector_allocate_size(STL_Vector *self, size_t nbytes, enum yn prev)
+{
 
     /* Main part */
     if (prev == YES) {
@@ -45,7 +46,8 @@ static int STL_Vector_allocate_size(STL_Vector *self, size_t nbytes, enum yn pre
     return STL_Vector_OK;
 }
 
-static int STL_Vector_reallocate(STL_Vector *self, size_t new_size) {
+static int STL_Vector_reallocate(STL_Vector *self, size_t new_size)
+{
 
     /* Initializing variables */
     auto void *tmp = malloc(self->nelem * self->nbytes);
@@ -71,7 +73,8 @@ static int STL_Vector_reallocate(STL_Vector *self, size_t new_size) {
     return STL_Vector_OK;
 }
 
-int STL_Vector_init(STL_Vector *self, size_t nbytes) {
+int STL_Vector_init(STL_Vector *self, size_t nbytes)
+{
 
     /* Initializing variables */
     if (STL_Vector_allocate_size(self, nbytes * thresh, NO) != STL_Vector_OK) {
@@ -86,7 +89,8 @@ int STL_Vector_init(STL_Vector *self, size_t nbytes) {
     return STL_Vector_OK;
 }
 
-int STL_Vector_init_cpy(STL_Vector *self, STL_Vector *other) {
+int STL_Vector_init_cpy(STL_Vector *self, STL_Vector *other)
+{
 
     /* Main part */
     if (self == NULL || other == NULL) {
@@ -106,7 +110,8 @@ int STL_Vector_init_cpy(STL_Vector *self, STL_Vector *other) {
     return STL_Vector_OK;
 }
 
-void STL_Vector_delete(STL_Vector *self) {
+void STL_Vector_delete(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -117,7 +122,8 @@ void STL_Vector_delete(STL_Vector *self) {
     free(self->data);
 }
 
-void *STL_Vector_at(STL_Vector *self, size_t n) {
+void *STL_Vector_at(STL_Vector *self, size_t n)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -132,19 +138,22 @@ void *STL_Vector_at(STL_Vector *self, size_t n) {
     return (self->data + n * self->nbytes);
 }
 
-void *STL_Vector_front(STL_Vector *self) {
+void *STL_Vector_front(STL_Vector *self)
+{
 
     /* Returning value */
     return STL_Vector_at(self, 0);
 }
 
-void *STL_Vector_last(STL_Vector *self) {
+void *STL_Vector_last(STL_Vector *self)
+{
 
     /* Returning value */
     return STL_Vector_at(self, self->nelem - 1);
 }
 
-void *STL_Vector_data(STL_Vector *self) {
+void *STL_Vector_data(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -155,7 +164,8 @@ void *STL_Vector_data(STL_Vector *self) {
     return self->data;
 }
 
-void *STL_Vector_begin(STL_Vector *self) {
+void *STL_Vector_begin(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -166,7 +176,8 @@ void *STL_Vector_begin(STL_Vector *self) {
     return self->data;
 }
 
-void *STL_Vector_end(STL_Vector *self) {
+void *STL_Vector_end(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -177,7 +188,8 @@ void *STL_Vector_end(STL_Vector *self) {
     return (self->data + self->nelem * self->nbytes + self->nbytes);
 }
 
-int STL_Vector_empty(STL_Vector *self) {
+int STL_Vector_empty(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -188,7 +200,8 @@ int STL_Vector_empty(STL_Vector *self) {
     return (!self->nelem) ? vector_is_empty : vector_not_empty;
 }
 
-size_t STL_Vector_size(STL_Vector *self) {
+size_t STL_Vector_size(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -199,7 +212,8 @@ size_t STL_Vector_size(STL_Vector *self) {
     return self->nelem;
 }
 
-int STL_Vector_reserve(STL_Vector *self, size_t new_cap) {
+int STL_Vector_reserve(STL_Vector *self, size_t new_cap)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -215,7 +229,8 @@ int STL_Vector_reserve(STL_Vector *self, size_t new_cap) {
     return STL_Vector_reallocate(self, new_cap * self->nbytes);
 }
 
-size_t STL_Vector_capacity(STL_Vector *self) {
+size_t STL_Vector_capacity(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -226,7 +241,8 @@ size_t STL_Vector_capacity(STL_Vector *self) {
     return self->max_nelem;
 }
 
-int STL_Vector_shrink_to_fit(STL_Vector *self) {
+int STL_Vector_shrink_to_fit(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -237,7 +253,8 @@ int STL_Vector_shrink_to_fit(STL_Vector *self) {
     return STL_Vector_reallocate(self, self->nbytes * self->nelem);
 }
 
-void STL_Vector_clear(STL_Vector *self) {
+void STL_Vector_clear(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -248,13 +265,15 @@ void STL_Vector_clear(STL_Vector *self) {
     self->nelem = 0;
 }
 
-void *STL_Vector_insert_at(STL_Vector *self, const void *elem, size_t pos) {
+void *STL_Vector_insert_at(STL_Vector *self, const void *elem, size_t pos)
+{
 
     /* Returning value */
     return STL_Vector_insert(self, elem, STL_Vector_at(self, pos));
 }
 
-void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {
+void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -290,13 +309,15 @@ void *STL_Vector_insert(STL_Vector *self, const void *elem, void *pos) {
     return pos;
 }
 
-void *STL_Vector_erase_pos(STL_Vector *self, size_t pos) {
+void *STL_Vector_erase_pos(STL_Vector *self, size_t pos)
+{
 
     /* Returning value */
     return STL_Vector_erase(self, self->data + pos);
 }
 
-void *STL_Vector_erase(STL_Vector *self, void *pos) {
+void *STL_Vector_erase(STL_Vector *self, void *pos)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -316,7 +337,8 @@ void *STL_Vector_erase(STL_Vector *self, void *pos) {
     return pos;
 }
 
-int STL_Vector_push_back(STL_Vector *self, const void *elem) {
+int STL_Vector_push_back(STL_Vector *self, const void *elem)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -336,7 +358,8 @@ int STL_Vector_push_back(STL_Vector *self, const void *elem) {
     return (int) STL_Vector_insert(self, elem, STL_Vector_end(self));
 }
 
-void STL_Vector_pop_back(STL_Vector *self) {
+void STL_Vector_pop_back(STL_Vector *self)
+{
 
     /* VarCheck */
     if (self == NULL) {
@@ -349,7 +372,8 @@ void STL_Vector_pop_back(STL_Vector *self) {
     }
 }
 
-int STL_Vector_resize(STL_Vector *self, size_t count) {
+int STL_Vector_resize(STL_Vector *self, size_t count)
+{
 
     /* Initializing variables */
     auto size_t old_size;
@@ -373,7 +397,8 @@ int STL_Vector_resize(STL_Vector *self, size_t count) {
     return STL_Vector_OK;
 }
 
-void STL_Vector_swap(STL_Vector *self, STL_Vector *other) {
+void STL_Vector_swap(STL_Vector *self, STL_Vector *other)
+{
 
     auto STL_Vector tmp;
 

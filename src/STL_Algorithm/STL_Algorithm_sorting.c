@@ -25,7 +25,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 
 
 /* Basic sorting algorithms */
-void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     register size_t i, j;
@@ -48,7 +49,8 @@ void STL_bubble_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void
     }
 }
 
-void STL_selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     register size_t i, j, min_index = 0;
@@ -69,7 +71,8 @@ void STL_selection_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const v
     }
 }
 
-void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     register long i, j;
@@ -79,8 +82,9 @@ void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const v
     for (i = 1; i < n; ++i) {
         memcpy(key, (p + i * nbytes), nbytes);
 
-        for (j = i - 1; j >= 0 &&
-                (*cmp)((const void *) (p + j * nbytes), (const void *) key) > 0; --j) {
+        for (j = i - 1;
+             (j >= 0) && ((*cmp)((const void *) (p + j * nbytes), (const void *) key) > 0);
+             --j) {
             memcpy((p + (j + 1) * nbytes), (p + j * nbytes), nbytes);
         }
 
@@ -88,20 +92,23 @@ void STL_insertion_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const v
     }
 }
 
-void STL_shell_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_shell_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     auto char *p = (char *) pbase, temp[nbytes];
     register size_t i, j, gap;
 
     /* Main part */
-    for (gap = 1; gap < n / 3 ; gap = gap * 3 + 1)
+    for (gap = 1; gap < n / 3; gap = gap * 3 + 1)
         ;
 
     for ( ; gap > 0; gap = (gap - 1) / 3) {
         for (i = gap; i < n; ++i) {
             memcpy(temp, (p + i * nbytes), nbytes);
-            for (j = i; j >= gap && (*cmp)((const void *) (p + (j - gap) * nbytes), (const void *) temp) > 0; j -= gap) {
+            for (j = i;
+                 (j >= gap) && ((*cmp)((const void *) (p + (j - gap) * nbytes), (const void *) temp) > 0);
+                 j -= gap) {
                 memcpy((p + j * nbytes), (p + (j - gap) * nbytes), nbytes);
             }
 

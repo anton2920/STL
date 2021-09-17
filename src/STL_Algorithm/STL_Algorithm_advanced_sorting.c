@@ -25,7 +25,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include <stdlib.h>
 
 /* Miscellaneous routines */
-static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (*cmp)(const void *, const void *)) {
+static void *pivot_arr(void *arr, size_t nbytes, size_t low, size_t high, int (*cmp)(const void *, const void *))
+{
 
     /* This functions is used for taking a choice for a pivot and rearranging
      * array, that elements smaller than a pivot go to left of pivot, and all greater
@@ -49,7 +50,8 @@ static void *pivot_arr (void *arr, size_t nbytes, size_t low, size_t high, int (
     return (void *) (p + (i + 1) * nbytes);
 }
 
-static void merge(void *pbase, size_t nbytes, size_t left, int mid, int right, int (*cmp)(const void *, const void *)) {
+static void merge(void *pbase, size_t nbytes, size_t left, int mid, int right, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     auto char *p = (char *) pbase;
@@ -106,7 +108,8 @@ typedef struct {
 #define STACK_NOT_EMPTY     (stack < top)
 
 /* Advanced sorting algorithms */
-void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* VarCheck */
     if (n <= 1) {
@@ -131,7 +134,7 @@ void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
         piv = pivot_arr(pbase, nbytes, (lo - base_ptr) / nbytes, (hi - base_ptr) / nbytes, cmp);
 
         if (piv - nbytes > lo) {
-            PUSH(lo, piv-nbytes);
+            PUSH(lo, piv - nbytes);
         }
 
         if (piv + nbytes < hi) {
@@ -140,7 +143,8 @@ void STL_quick_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void 
     }
 }
 
-void STL_merge_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *)) {
+void STL_merge_sort(void *pbase, size_t n, size_t nbytes, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     register size_t curr_size, left_start;

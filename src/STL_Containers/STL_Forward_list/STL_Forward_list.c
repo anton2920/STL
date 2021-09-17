@@ -24,7 +24,8 @@ along with STL. If not, see <https://www.gnu.org/licenses/>.
 #include <string.h>
 
 
-static void STL_Forward_list_check_pointers(STL_Forward_list *l) {
+static void STL_Forward_list_check_pointers(STL_Forward_list *l)
+{
 
     /* Main part */
     if ((l->bp != NULL && l->lp == NULL)) {
@@ -32,7 +33,8 @@ static void STL_Forward_list_check_pointers(STL_Forward_list *l) {
     }
 }
 
-int STL_Forward_list_init(STL_Forward_list *l) {
+int STL_Forward_list_init(STL_Forward_list *l)
+{
 
     /* Main part */
     if (l == NULL) {
@@ -56,7 +58,8 @@ int STL_Forward_list_init(STL_Forward_list *l) {
     return STL_Forward_list_OK;
 }
 
-int STL_Forward_list_init_cpy(STL_Forward_list *self, STL_Forward_list *other) {
+int STL_Forward_list_init_cpy(STL_Forward_list *self, STL_Forward_list *other)
+{
 
     /* Initializing variables */
     register STL_Forward_list_node *iter;
@@ -78,7 +81,8 @@ int STL_Forward_list_init_cpy(STL_Forward_list *self, STL_Forward_list *other) {
     return STL_Forward_list_OK;
 }
 
-void STL_Forward_list_delete(STL_Forward_list *l) {
+void STL_Forward_list_delete(STL_Forward_list *l)
+{
 
     /* Main part */
     if (l == NULL) {
@@ -90,7 +94,8 @@ void STL_Forward_list_delete(STL_Forward_list *l) {
     free(l->bp);
 }
 
-void *STL_Forward_list_front(const STL_Forward_list *l) {
+void *STL_Forward_list_front(const STL_Forward_list *l)
+{
 
     /* VarCheck */
     if (l == NULL) {
@@ -107,13 +112,15 @@ void *STL_Forward_list_front(const STL_Forward_list *l) {
     }
 }
 
-STL_Forward_list_node *STL_Forward_list_before_begin(STL_Forward_list *l) {
+STL_Forward_list_node *STL_Forward_list_before_begin(STL_Forward_list *l)
+{
 
     /* Returning value */
     return l->bp;
 }
 
-STL_Forward_list_node *STL_Forward_list_begin(STL_Forward_list *l) {
+STL_Forward_list_node *STL_Forward_list_begin(STL_Forward_list *l)
+{
 
     /* VarCheck */
     if (l->bp == NULL) {
@@ -124,19 +131,22 @@ STL_Forward_list_node *STL_Forward_list_begin(STL_Forward_list *l) {
     return l->bp->next;
 }
 
-STL_Forward_list_node *STL_Forward_list_end(STL_Forward_list *l) {
+STL_Forward_list_node *STL_Forward_list_end(STL_Forward_list *l)
+{
 
     /* Returning value */
     return l->lp;
 }
 
-int STL_Forward_list_empty(STL_Forward_list *l) {
+int STL_Forward_list_empty(STL_Forward_list *l)
+{
 
     /* Returning value */
     return (l->size) ? forward_list_not_empty : forward_list_is_empty;
 }
 
-size_t STL_Forward_list_size(STL_Forward_list *l) {
+size_t STL_Forward_list_size(STL_Forward_list *l)
+{
 
     /* Main part */
     if (l == NULL) {
@@ -147,7 +157,8 @@ size_t STL_Forward_list_size(STL_Forward_list *l) {
     return l->size;
 }
 
-void STL_Forward_list_clear(STL_Forward_list *l) {
+void STL_Forward_list_clear(STL_Forward_list *l)
+{
 
     /* Main part */
     if (l == NULL) {
@@ -161,7 +172,8 @@ void STL_Forward_list_clear(STL_Forward_list *l) {
     STL_Forward_list_check_pointers(l);
 }
 
-int STL_Forward_list_insert_after(STL_Forward_list *l, const void *elem, size_t size, STL_Forward_list_node *pos) {
+int STL_Forward_list_insert_after(STL_Forward_list *l, const void *elem, size_t size, STL_Forward_list_node *pos)
+{
 
     /* Initializing variables */
     auto STL_Forward_list_node *new_element;
@@ -203,7 +215,8 @@ int STL_Forward_list_insert_after(STL_Forward_list *l, const void *elem, size_t 
     return STL_Forward_list_OK;
 }
 
-STL_Forward_list_node *STL_Forward_list_erase_after(STL_Forward_list *l, STL_Forward_list_node *pos) {
+STL_Forward_list_node *STL_Forward_list_erase_after(STL_Forward_list *l, STL_Forward_list_node *pos)
+{
 
     /* Initializing variables */
     auto STL_Forward_list_node *ret;
@@ -231,19 +244,22 @@ STL_Forward_list_node *STL_Forward_list_erase_after(STL_Forward_list *l, STL_For
     return ret;
 }
 
-int STL_Forward_list_push_front(STL_Forward_list *l, const void *elem, size_t size) {
+int STL_Forward_list_push_front(STL_Forward_list *l, const void *elem, size_t size)
+{
 
     /* Returning value */
     return STL_Forward_list_insert_after(l, elem, size, STL_Forward_list_before_begin(l));
 }
 
-STL_Forward_list_node *STL_Forward_list_pop_front(STL_Forward_list *l) {
+STL_Forward_list_node *STL_Forward_list_pop_front(STL_Forward_list *l)
+{
 
     /* Returning value */
     return STL_Forward_list_erase_after(l, STL_Forward_list_before_begin(l));
 }
 
-void STL_Forward_list_merge(STL_Forward_list *self, STL_Forward_list *other, int (*cmp)(const void *, const void *)) {
+void STL_Forward_list_merge(STL_Forward_list *self, STL_Forward_list *other, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
     auto STL_Forward_list_node *i1 = STL_Forward_list_before_begin(self), *i2;
@@ -270,7 +286,9 @@ void STL_Forward_list_merge(STL_Forward_list *self, STL_Forward_list *other, int
         }
     } else {
         case_2:
-        for (i2 = STL_Forward_list_before_begin(other); i2->next != STL_Forward_list_end(other); i2 = STL_Forward_list_erase_after(other, i2)) {
+        for (i2 = STL_Forward_list_before_begin(other);
+             i2->next != STL_Forward_list_end(other);
+             i2 = STL_Forward_list_erase_after(other, i2)) {
             STL_Forward_list_insert_after(self, i2->next->value, i2->next->size, i1);
             i1 = i1->next;
         }
@@ -278,7 +296,8 @@ void STL_Forward_list_merge(STL_Forward_list *self, STL_Forward_list *other, int
 
 }
 
-void STL_Forward_list_reverse(STL_Forward_list *self) {
+void STL_Forward_list_reverse(STL_Forward_list *self)
+{
 
     /* Initializing variables */
     auto STL_Forward_list_node *iter, *iter_2;
@@ -290,21 +309,24 @@ void STL_Forward_list_reverse(STL_Forward_list *self) {
         STL_Forward_list_push_front(&other, iter->value, iter->size);
     }
 
-    for (iter = STL_Forward_list_begin(self), iter_2 = STL_Forward_list_begin(&other); iter != STL_Forward_list_end(self);
-            iter = iter->next, iter_2 = iter_2->next) {
+    for (iter = STL_Forward_list_begin(self), iter_2 = STL_Forward_list_begin(&other);
+         iter != STL_Forward_list_end(self);
+         iter = iter->next, iter_2 = iter_2->next) {
         STL_Forward_list_swap_nodes(iter, iter_2);
     }
 
     STL_Forward_list_delete(&other);
 }
 
-void STL_Forward_list_sort(STL_Forward_list *l, size_t n, int (*cmp)(const void *, const void *)) {
+void STL_Forward_list_sort(STL_Forward_list *l, size_t n, int (*cmp)(const void *, const void *))
+{
 
     /* Initializing variables */
 
 }
 
-void STL_Forward_list_swap_nodes(STL_Forward_list_node *a, STL_Forward_list_node *b) {
+void STL_Forward_list_swap_nodes(STL_Forward_list_node *a, STL_Forward_list_node *b)
+{
 
     /* Initializing variables */
     auto STL_Forward_list_node tmp;
@@ -320,7 +342,8 @@ void STL_Forward_list_swap_nodes(STL_Forward_list_node *a, STL_Forward_list_node
     a->size = tmp.size;
 }
 
-void STL_Forward_list_swap(STL_Forward_list *self, STL_Forward_list *other) {
+void STL_Forward_list_swap(STL_Forward_list *self, STL_Forward_list *other)
+{
 
     /* Initializing variables */
     auto STL_Forward_list tmp;
@@ -339,7 +362,8 @@ void STL_Forward_list_swap(STL_Forward_list *self, STL_Forward_list *other) {
     self->size = tmp.size;
 }
 
-size_t STL_Forward_list_size_node(STL_Forward_list_node *node) {
+size_t STL_Forward_list_size_node(STL_Forward_list_node *node)
+{
 
     /* Returning value */
     return node->size;
