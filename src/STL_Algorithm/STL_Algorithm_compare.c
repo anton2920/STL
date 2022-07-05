@@ -1,6 +1,6 @@
 /*
 Sorting library — free shared library, that contains a few general-purpose sorting algorithms
-Copyright © Pavlovsky Anton, 2019-2021
+Copyright © Pavlovsky Anton, 2019-2022
 
 This file is part of Sorting library.
 
